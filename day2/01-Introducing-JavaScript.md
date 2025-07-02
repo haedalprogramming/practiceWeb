@@ -35,18 +35,19 @@ JavaScript는 실행 환경에 따라 가능한 기능이 달라집니다. 크�
 * Ajax를 통한 서버와의 비동기 통신
 * 애니메이션 효과, 자동 슬라이드 등 인터랙티브한 기능 구현
 
-```html
-<script>
-    // 브라우저 알림창 띄우기
-    alert("Hello, World!");
-</script>
-```
-
 #### 프론트엔드에서의 활용 예시
 
 아래는 프론트엔드 브라우저 환경에서 JavaScript를 활용하여 기능을 구현하는 예시입니다.
 
-1. **메뉴 열기/닫기 토글**
+1. **브라우저 알림창 띄우기**
+    ```html
+    <script>
+        // 브라우저 알림창 띄우기
+        alert("Hello, World!");
+    </script>
+    ```
+
+2. **메뉴 열기/닫기 토글**
     ```javascript
     // 버튼 엘리먼트 얻기
     const button = document.querySelector('#menu-button');
@@ -60,7 +61,7 @@ JavaScript는 실행 환경에 따라 가능한 기능이 달라집니다. 크�
     });
     ```
 
-2. **입력값 유효성 검사**
+3. **입력값 유효성 검사**
     ```javascript
     const input = document.querySelector('#email');
     input.addEventListener('blur', () => {
@@ -70,7 +71,7 @@ JavaScript는 실행 환경에 따라 가능한 기능이 달라집니다. 크�
     });
     ```
 
-3. **스크롤 애니메이션 효과**
+4. **스크롤 애니메이션 효과**
     ```javascript
     window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
@@ -78,7 +79,7 @@ JavaScript는 실행 환경에 따라 가능한 기능이 달라집니다. 크�
     });
     ```
 
-4. **모달 창 열기 및 닫기**
+5. **모달 창 열기 및 닫기**
     ```javascript
     const modal = document.querySelector('#modal');
     const openBtn = document.querySelector('#open-modal');
@@ -108,8 +109,10 @@ Node.js에서는 다음과 같은 작업이 가능합니다:
 * 백그라운드 작업 처리 등
 
 ```javascript
-// Node.js 환경에서 실행되는 예시
+// Node.js 내장 모듈 불러오기
 const fs = require('fs');
+
+// 파일에 내용 쓰기
 fs.writeFileSync('example.txt', 'Hello, Node.js!');
 ```
 
