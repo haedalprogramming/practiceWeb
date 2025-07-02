@@ -47,61 +47,57 @@ JavaScript는 실행 환경에 따라 가능한 기능이 달라집니다. 크�
 아래는 프론트엔드 브라우저 환경에서 JavaScript를 활용하여 기능을 구현하는 예시입니다.
 
 1. **메뉴 열기/닫기 토글**
+    ```javascript
+    // 버튼 엘리먼트 얻기
+    const button = document.querySelector('#menu-button');
 
-```javascript
-// 버튼 엘리먼트 얻기
-const button = document.querySelector('#menu-button');
+    // 메뉴 엘리먼트 얻기
+    const menu = document.querySelector('#menu');
 
-// 메뉴 엘리먼트 얻기
-const menu = document.querySelector('#menu');
-
-// 버튼 클릭 이벤트 리스너 추가
-button.addEventListener('click', () => {
-  menu.classList.toggle('open'); // 메뉴 열기/닫기 토글
-});
-```
+    // 버튼 클릭 이벤트 리스너 추가
+    button.addEventListener('click', () => {
+        menu.classList.toggle('open'); // 메뉴 열기/닫기 토글
+    });
+    ```
 
 2. **입력값 유효성 검사**
-
-```javascript
-const input = document.querySelector('#email');
-input.addEventListener('blur', () => {
-  if (!input.value.includes('@')) {
-    alert('이메일 주소를 올바르게 입력해주세요.');
-  }
-});
-```
+    ```javascript
+    const input = document.querySelector('#email');
+    input.addEventListener('blur', () => {
+    if (!input.value.includes('@')) {
+        alert('이메일 주소를 올바르게 입력해주세요.');
+    }
+    });
+    ```
 
 3. **스크롤 애니메이션 효과**
-
-```javascript
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('header');
-  header.classList.toggle('scrolled', window.scrollY > 50);
-});
-```
+    ```javascript
+    window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+    ```
 
 4. **모달 창 열기 및 닫기**
+    ```javascript
+    const modal = document.querySelector('#modal');
+    const openBtn = document.querySelector('#open-modal');
+    const closeBtn = document.querySelector('#close-modal');
 
-```javascript
-const modal = document.querySelector('#modal');
-const openBtn = document.querySelector('#open-modal');
-const closeBtn = document.querySelector('#close-modal');
+    openBtn.addEventListener('click', () => {
+    modal.style.display = 'block';
+    });
 
-openBtn.addEventListener('click', () => {
-  modal.style.display = 'block';
-});
-
-closeBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
-```
+    closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    });
+    ```
 
 이처럼 JavaScript는 웹 사용자 경험을 풍부하게 만들 수 있는 강력한 도구입니다.
 
 ### 2.2 Node.js 환경
 
-Node.js는 JavaScript를 **서버 측 언어처럼 사용할 수 있게 해주는 런타임**입니다. 웹 브라우저가 아닌 컴퓨터 자체에서 JavaScript를 실행할 수 있도록 해주며, 특히 서버 개발에 많이 사용됩니다.
+Node.js는 JavaScript를 서버 측 언어처럼 사용할 수 있게 해주는 런타임(실행환경)입니다. 즉 **웹 브라우저가 아닌 컴퓨터 자체에서** JavaScript를 실행할 수 있도록 해주며, 특히 프론트엔드 및 백엔드 서버 개발에 많이 사용됩니다.
 
 Node.js에서는 다음과 같은 작업이 가능합니다:
 
@@ -118,7 +114,7 @@ fs.writeFileSync('example.txt', 'Hello, Node.js!');
 ```
 
 > [!NOTE]
-> Node.js 환경은 웹 애플리케이션의 뒷단을 구성하는 데 유용하며, 프론트엔드와 백엔드를 모두 JavaScript로 개발할 수 있게 해줍니다. 이를 풀스택 JavaScript라고 부르며, 많은 현대 웹 개발 프로젝트에서 활용되고 있습니다.
+> Node.js 환경은 웹 애플리케이션의 뒷단을 구성하는 데 유용하며, 프론트엔드와 백엔드를 모두 JavaScript로 개발할 수 있게 해줍니다. 이를 풀스택 JavaScript라고 부르며, 많은 현대 웹 개발 프로젝트에서 활용되고 있습니다. Node.js 에서 프론트엔드를 개발하는 경우, Vite나 Webpack 같은 빌드 도구(번들러, 트랜스파일러 등)가 코드를 웹 브라우저에서 실행될 수 있는 형태로 변환해주게 됩니다. 이 부분은 프론트엔드 개발 파트에서 본격적으로 다루겠습니다.
 
 ---
 
