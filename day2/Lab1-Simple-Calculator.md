@@ -63,4 +63,25 @@ rl.on('close', () => {
 
 > [!NOTE]
 > - `require('readline')`은 Node.js의 내장 모듈인 `readline`을 불러옵니다. 이 모듈은 터미널과 같은 읽기 가능한 스트림에서 한 줄씩 데이터를 읽기 위한 인터페이스를 제공합니다.
-> - `readline.createInterface()`
+> - `readline.createInterface()`는 `readline` 인터페이스 객체를 생성합니다. `input`과 `output`으로 각각 표준 입력(`process.stdin`)과 표준 출력(`process.stdout`)을 지정하여, 터미널에서 입력을 받고 터미널로 결과를 출력할 수 있게 합니다.
+> - `rl.on('line', callback)`은 사용자가 터미널에 한 줄을 입력하고 Enter 키를 누를 때마다 `callback` 함수를 실행합니다. 입력된 내용은 `line` 매개변수로 전달됩니다.
+> - `new Function('return ' + line)()`은 문자열 형태의 수식을 계산하는 방법 중 하나입니다. `eval()`과 유사하지만, 전역 스코프에 접근하지 않아 상대적으로 더 안전합니다.
+> - `isNaN(result)`는 계산 결과가 숫자인지 확인합니다. 숫자가 아니면 `true`를 반환합니다.
+> - `rl.close()`는 `readline` 인터페이스를 닫고, 'close' 이벤트를 발생시킵니다.
+> - `rl.on('close', callback)`은 인터페이스가 닫힐 때 `callback` 함수를 실행합니다.
+
+### 3. 결과 확인
+
+터미널에서 다음 명령어를 실행하여 계산기 프로그램을 실행합니다.
+
+```bash
+node calculator.js
+```
+
+프로그램이 실행되면, "10 + 5"와 같은 수식을 입력하고 Enter를 눌러보세요. 계산 결과가 출력되는 것을 확인할 수 있습니다. 계산을 마친 후 'exit'을 입력하면 프로그램이 종료됩니다.
+
+---
+
+- [목차로 돌아가기](./README.md)
+- [이전 강의: Node.js에서의 JavaScript](./15-Node.js-JavaScript.md)
+- [다음 실습: 투두리스트 만들기](./Lab2-Todo-List.md)
