@@ -394,4 +394,4 @@ footer {
 ---
 - [목차로 돌아가기](README.md)
 - [이전 강의로 돌아가기](10-CSS-Pseudo-Classes.md)
-- [다음 강의로 이동](11-Introducing-React-and-Setup.md)
+- [다음 강의로 이동](13-Introducing-React-and-Setup.md)

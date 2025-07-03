@@ -134,4 +134,4 @@ my-react-app/
 
 - [목차로 돌아가기](README.md)
 - [이전 강의로 이동](../day2/README.md)
-- [다음 강의로 이동](12-Understanding-JSX.md)
+- [다음 강의로 이동](14-Understanding-JSX.md)
