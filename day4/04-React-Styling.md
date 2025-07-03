@@ -46,8 +46,8 @@ CSS Module은 CSS 클래스 이름이 전역적으로 겹치는 문제를 해결
     export default Button;
     ```
 
-[!TIP]
-CSS Module은 클래스 이름 충돌을 방지하고 컴포넌트 기반의 스타일링을 선호하는 경우에 유용합니다.
+> [!TIP]
+> CSS Module은 클래스 이름 충돌을 방지하고 컴포넌트 기반의 스타일링을 선호하는 경우에 유용합니다.
 
 ### 3-1-2) Tailwind CSS
 
@@ -81,11 +81,11 @@ function MyComponent() {
 export default MyComponent;
 ```
 
-[!NOTE]
-`flex`, `justify-center`, `items-center`, `h-screen`, `bg-gray-100` 등은 모두 Tailwind CSS에서 제공하는 유틸리티 클래스입니다.
+> [!NOTE]
+> `flex`, `justify-center`, `items-center`, `h-screen`, `bg-gray-100` 등은 모두 Tailwind CSS에서 제공하는 유틸리티 클래스입니다.
 
-[!CAUTION]
-HTML에 많은 클래스들이 나열되어 코드가 길어지고 가독성이 떨어질 수 있다는 단점이 있습니다.
+> [!CAUTION]
+> HTML에 많은 클래스들이 나열되어 코드가 길어지고 가독성이 떨어질 수 있다는 단점이 있습니다.
 
 ### 3-1-3) Styled-Components
 
@@ -154,8 +154,8 @@ Styled-Components는 CSS-in-JS 라이브러리 중 하나입니다. JavaScript �
     export default App;
     ```
 
-[!IMPORTANT]
-Styled-Components는 JavaScript 코드 내에서 CSS를 작성하므로, JavaScript의 변수나 함수를 사용하여 동적인 스타일을 적용할 수 있다는 강력한 장점이 있습니다.
+> [!IMPORTANT]
+> Styled-Components는 JavaScript 코드 내에서 CSS를 작성하므로, JavaScript의 변수나 함수를 사용하여 동적인 스타일을 적용할 수 있다는 강력한 장점이 있습니다.
 
 ### 3-1-4) 어떤 스타일링 방식을 선택해야 할까?
 
@@ -165,8 +165,8 @@ Styled-Components는 JavaScript 코드 내에서 CSS를 작성하므로, JavaScr
 *   **Tailwind CSS**: 빠른 프로토타이핑이나 디자인 시스템이 명확한 경우, 그리고 CSS를 직접 작성하는 시간을 줄이고 싶은 경우에 매우 효율적입니다.
 *   **Styled-Components**: 컴포넌트와 스타일을 함께 관리하고 싶고, JavaScript의 기능을 활용하여 동적인 스타일링을 많이 해야 하는 경우에 적합합니다.
 
-[!TIP]
-하나의 프로젝트에서 여러 스타일링 방식을 혼합하여 사용하는 경우도 있습니다. 예를 들어, 전역적인 스타일은 일반 CSS로 관리하고, 컴포넌트별 스타일은 CSS Module이나 Styled-Components를 사용하는 방식입니다.
+> [!TIP]
+> 하나의 프로젝트에서 여러 스타일링 방식을 혼합하여 사용하는 경우도 있습니다. 예를 들어, 전역적인 스타일은 일반 CSS로 관리하고, 컴포넌트별 스타일은 CSS Module이나 Styled-Components를 사용하는 방식입니다.
 
 ---
 
