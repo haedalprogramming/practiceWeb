@@ -22,6 +22,6 @@
 - [15. Node.js JavaScript](15-Node.js-JavaScript.md)
 
 ## 3) 실습
-- Lab1: ES6+ 문법 실습
-- Lab2: 브라우저 개발 실습
-- Lab2: Node.js 개발 실습
+- [Lab1-Todo-List](Lab1-Todo-List.md)
+- [Lab2-Grade-Processor](Lab2-Grade-Processor.md)
+- [Lab3-Simple-Web-Server](Lab3-Simple-Web-Server.md)

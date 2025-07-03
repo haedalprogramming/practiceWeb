@@ -13,4 +13,4 @@
 - [프론트엔드란?](./08-Introducing-Frontend.md)
 - [개발 환경 설정](./09-Setup-Development-Environment.md)
 - [마크다운](./10-Markdown.md)
-- [Lab1. GitHub 협업](./Lab1.-GitHub-collaboration.md)
+- [Lab1. GitHub 협업](./Lab1-GitHub-collaboration.md)
