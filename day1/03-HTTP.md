@@ -21,7 +21,7 @@
 
 ## 1) HTTP란?
 
-HTTP(HyperText Transfer Protocol)는 웹에서 클라이언트(예: 웹 브라우저)와 서버 간에 데이터를 주고받기 위한 **통신 규칙(Protocol)**입니다. 웹의 기반이 되는 이 프로토콜은 HTML 문서, 이미지, 동영상 등 다양한 종류의 데이터를 전송하는 데 사용됩니다.
+HTTP(HyperText Transfer Protocol)는 웹에서 클라이언트(예: 웹 브라우저)와 서버 간에 데이터를 주고받기 위한 <strong>통신 규칙(Protocol)</strong>입니다. 웹의 기반이 되는 이 프로토콜은 HTML 문서, 이미지, 동영상 등 다양한 종류의 데이터를 전송하는 데 사용됩니다.
 
 ### HTTP의 주요 특징
 
@@ -33,7 +33,7 @@ HTTP(HyperText Transfer Protocol)는 웹에서 클라이언트(예: 웹 브라�
 
 ## 2) HTTP 메시지 구조
 
-HTTP 통신은 **요청(Request)**과 **응답(Response)** 메시지를 통해 이루어집니다. 두 메시지는 비슷한 구조를 가집니다.
+HTTP 통신은 <strong>요청(Request)</strong>과 <strong>응답(Response)</strong> 메시지를 통해 이루어집니다. 두 메시지는 비슷한 구조를 가집니다.
 
 ### 2-1) HTTP 요청 (Request)
 
@@ -151,7 +151,7 @@ HTTPS(HTTP Secure)는 HTTP에 **SSL/TLS(Secure Sockets Layer/Transport Layer Sec
 
 ## 6) 상태 관리: 쿠키와 세션
 
-HTTP는 무상태(Stateless) 프로토콜이므로, 서버는 클라이언트의 이전 요청을 기억하지 못합니다. 하지만 로그인 상태 유지, 장바구니 기능 등을 구현하려면 사용자의 상태를 기억해야 합니다. 이를 위해 **쿠키(Cookie)**와 **세션(Session)**을 사용합니다.
+HTTP는 무상태(Stateless) 프로토콜이므로, 서버는 클라이언트의 이전 요청을 기억하지 못합니다. 하지만 로그인 상태 유지, 장바구니 기능 등을 구현하려면 사용자의 상태를 기억해야 합니다. 이를 위해 <strong>쿠키(Cookie)</strong>와 <strong>세션(Session)</strong>을 사용합니다.
 
 ### 6-1) 쿠키 (Cookie)
 
