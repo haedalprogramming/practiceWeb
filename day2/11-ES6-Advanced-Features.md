@@ -1,4 +1,4 @@
-# 11. ES6+ 고급 기능
+# 11. 고급 기능
 
 ## 목차
 1. [Iterator와 Generator](#1-iterator와-generator)

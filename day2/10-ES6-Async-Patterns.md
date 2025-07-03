@@ -1,4 +1,4 @@
-# 10. ES6+ 비동기 처리
+# 10. 비동기 처리
 
 ## 목차
 1. [동기(Synchronous)와 비동기(Asynchronous)](#1-동기synchronous와-비동기asynchronous)
