@@ -74,18 +74,50 @@ console.log("문자열" * 2); // NaN
 ```javascript
 let name = "홍길동";
 let school = '코딩고등학교';
-let introduction = `제 이름은 ${name}이고, ${school}에 다닙니다.`; // 백틱을 사용한 템플릿 리터럴
 
 console.log(name);
 console.log(school);
-console.log(introduction);
 console.log("이름의 길이:", name.length); // 3 (문자열의 길이를 확인할 수 있습니다.)
 ```
 
-> [!TIP]
-> 백틱(`` ` ``)을 사용한 문자열을 **템플릿 리터럴**이라고 부릅니다. 템플릿 리터럴 안에서는 `${변수명}` 형태로 변수의 값을 쉽게 문자열에 포함시킬 수 있어 매우 편리합니다.
+#### 1-2-1) 템플릿 리터럴 (Template Literals)
 
-### 1-2-1) 유용한 문자열 메소드
+ES6에서 도입된 **템플릿 리터럴**은 문자열을 만들 때 백틱(`` ` ``)을 사용하여 변수를 쉽게 포함시키고 여러 줄의 문자열을 작성하는 새로운 방법입니다. 기존의 따옴표를 사용한 문자열보다 훨씬 유연하고 가독성이 좋습니다.
+
+*   **변수 삽입 (보간법)**: `${변수명}` 또는 `${표현식}` 형태로 문자열 안에 변수나 JavaScript 코드를 직접 삽입할 수 있습니다.
+*   **여러 줄 문자열**: 별도의 줄 바꿈 문자(`
+`) 없이도 여러 줄에 걸쳐 문자열을 작성할 수 있습니다.
+
+```javascript
+const userName = "김철수";
+const userAge = 17;
+
+// 기존 방식 (문자열 연결)
+const oldGreeting = "안녕하세요, " + userName + "님! 나이는 " + userAge + "세 입니다.";
+console.log(oldGreeting);
+
+// 템플릿 리터럴 사용 (변수 삽입)
+const newGreeting = `안녕하세요, ${userName}님! 나이는 ${userAge}세 입니다.`;
+console.log(newGreeting);
+
+// 여러 줄 문자열 작성
+const multiLineText = `
+  안녕하세요, ${userName}님!
+  저희 웹사이트에 오신 것을 환영합니다.
+  즐거운 시간 되세요!
+`;
+console.log(multiLineText);
+
+// 표현식 삽입
+const price = 10000;
+const quantity = 3;
+console.log(`총 가격: ${price * quantity}원`); // 출력: 총 가격: 30000원
+```
+
+> [!TIP]
+> 템플릿 리터럴은 특히 동적인 내용을 포함하는 메시지나 HTML 코드를 JavaScript에서 생성할 때 매우 유용합니다. 코드를 더 깔끔하고 직관적으로 만들어줍니다.
+
+### 1-2-2) 유용한 문자열 메소드
 
 문자열 데이터는 다양한 조작을 할 수 있는 유용한 기능들을 내장하고 있습니다. 이를 **메소드(Method)**라고 부릅니다. 문자열 변수 뒤에 점(`.`)을 찍고 메소드 이름을 적어 사용하며, 마치 문자열에게 특정 행동을 하도록 명령하는 것과 같습니다.
 
