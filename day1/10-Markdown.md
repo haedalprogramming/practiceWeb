@@ -272,4 +272,4 @@ GitHub에서 특별히 더 지원하는 마크다운 문법들이 있습니다. 
 
 - [목차로 돌아가기](../README.md)
 - [이전 강의로 이동](./09-Setup-Development-Environment.md)
-- [다음 강의로 이동](./Lab1.-GitHub-collaboration.md)
+- [다음 강의로 이동](./Lab1-GitHub-collaboration.md)

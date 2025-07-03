@@ -17,7 +17,7 @@
 
 ### 1.2. Node.js 및 npm 설치 확인
 
-설치가 완료되면, 컴퓨터의 **터미널(Terminal)** 또는 **명령 프롬프트(Command Prompt)**를 열어 Node.js와 `npm`이 제대로 설치되었는지 확인합니다.
+설치가 완료되면, 컴퓨터의 **터미널(Terminal)** 을 열어 Node.js와 `npm`이 제대로 설치되었는지 확인합니다.
 
 -   **Windows**: 시작 메뉴에서 `터미널` 또는 `명령 프롬프트` 또는 `PowerShell`를 검색하여 실행합니다.
 -   **macOS**: Spotlight Search (Command + Space)에서 `터미널`을 검색하여 실행합니다.
