@@ -121,4 +121,4 @@ CSS 우선순위와 상속은 웹 페이지에 스타일이 어떻게 적용되�
 ---
 - [목차로 돌아가기](README.md)
 - [이전 강의로 이동](09-Layout-with-Flexbox.md)
-- [다음 강의로 이동](11-CSS-Position-Property.md)
+- [다음 강의로 이동](12-CSS-Pseudo-Classes.md)
