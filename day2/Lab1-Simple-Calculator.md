@@ -82,6 +82,6 @@ node calculator.js
 
 ---
 
-- [목차로 돌아가기](./README.md)
-- [이전 강의: Node.js에서의 JavaScript](./15-Node.js-JavaScript.md)
-- [다음 실습: 투두리스트 만들기](./Lab2-Todo-List.md)
+- [목차로 돌아가기](../README.md)
+- [이전 강의로 이동](16-Exception-Handling.md)
+- [다음 실습: 투두리스트 만들기](Lab2-Todo-List.md)

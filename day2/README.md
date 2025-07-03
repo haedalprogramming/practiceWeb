@@ -20,6 +20,9 @@
 - [13. DOM(문서 객체 모델) 기본 조작](13-Basic-DOM-Manipulation.md)
 - [14. 이벤트 처리 기초](14-Basic-Event-Handling.md)
 - [15. Node.js JavaScript](15-Node.js-JavaScript.md)
+- [16. 예외 처리](16-Exception-Handling.md)
+- [16. 예외 처리](16-Exception-Handling.md)
+- [16. 예외 처리](16-Exception-Handling.md)
 
 ## 3) 실습
 - [Lab1. 간단한 계산기 만들기](Lab1-Simple-Calculator.md)

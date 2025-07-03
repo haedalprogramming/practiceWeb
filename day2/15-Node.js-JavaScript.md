@@ -310,4 +310,4 @@ if (apiKey) {
 
 - [목차로 돌아가기](../README.md)
 - [이전 강의로 이동](14-Basic-Debugging-with-Console.md)
-- [다음 강의로 이동](../../day3/README.md)
+- [다음 강의로 이동](16-Exception-Handling.md)
