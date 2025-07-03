@@ -179,4 +179,4 @@ HTTP는 무상태(Stateless) 프로토콜이므로, 서버는 클라이언트의
 
 - [목차로 돌아가기](../README.md)
 - [이전 강의로 이동](02-Client-Server-Architecture.md)
-- [다음 강의로 이동](04-Introducing-Frontend.md)
+- [다음 강의로 이동](04-Git-Fundamentals.md)

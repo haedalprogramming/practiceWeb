@@ -86,4 +86,4 @@ React, Vue, Svelte 등으로 개발된 최신 프론트엔드 애플리케이션
 
 - [목차로 돌아가기](../README.md)
 - [이전 강의로 이동](06-Development-Workflow.md)
-- [다음 강의로 이동](08-Setup-Development-Environment.md)
+- [다음 강의로 이동](08-Introducing-Frontend.md)

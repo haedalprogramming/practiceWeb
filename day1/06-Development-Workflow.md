@@ -131,5 +131,5 @@
 ---
 
 - [목차로 돌아가기](../README.md)
-- [이전 강의로 이동](05-Git-and-GitHub-Fundamentals.md)
-- [다음 강의로 이동](07-Setup-Development-Environment.md)
+- [이전 강의로 이동](05-GitHub.md)
+- [다음 강의로 이동](07-Deployment.md)

@@ -197,4 +197,5 @@ HTML로 버튼을 만들고, JavaScript로 동작을 부여한 예시입니다. 
 ---
 
 - [목차로 돌아가기](../README.md)
+- [이전 강의로 이동](00-Lecture-Overview.md)
 - [다음 강의로 이동](02-Client-Server-Architecture.md)

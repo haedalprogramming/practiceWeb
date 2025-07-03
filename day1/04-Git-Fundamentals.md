@@ -44,8 +44,8 @@ Git은 여러분의 컴퓨터에 설치되어야 사용할 수 있는 프로그�
     여러분의 윈도우 버전에 맞는 최신 Git for Windows 설치 파일을 다운로드하세요. 보통 64-bit Git for Windows Setup을 선택하면 됩니다.
 3.  **설치 진행**:
     다운로드한 `.exe` 파일을 실행하고, 대부분의 설정은 기본값으로 두고 "Next" 버튼을 눌러 설치를 완료하세요. 중간에 선택하는 옵션들이 많지만, 처음에는 기본값을 유지하는 것이 좋습니다.
-    [!NOTE]
-    설치 과정 중 "Adjusting your PATH environment" 단계에서 "Git from the command line and also from 3rd-party software" 옵션을 선택하면 명령 프롬프트(CMD)나 PowerShell에서 Git 명령어를 바로 사용할 수 있게 됩니다. 이 옵션이 기본으로 선택되어 있을 것입니다.
+    > [!NOTE]
+    > 설치 과정 중 "Adjusting your PATH environment" 단계에서 "Git from the command line and also from 3rd-party software" 옵션을 선택하면 명령 프롬프트(CMD)나 PowerShell에서 Git 명령어를 바로 사용할 수 있게 됩니다. 이 옵션이 기본으로 선택되어 있을 것입니다.
 4.  **설치 확인**:
     설치가 완료되면, 명령 프롬프트(CMD)나 PowerShell을 열고 다음 명령어를 입력해보세요.
     ```bash
@@ -66,8 +66,8 @@ macOS에서는 여러 가지 방법으로 Git을 설치할 수 있지만, Homebr
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
-    [!NOTE]
-    Homebrew 설치가 완료되면 터미널에 안내되는 `PATH` 설정 명령어를 꼭 실행해주세요. 보통 `echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/YOUR_USERNAME/.zprofile` 와 같은 형태일 것입니다.
+    > [!NOTE]
+    > Homebrew 설치가 완료되면 터미널에 안내되는 `PATH` 설정 명령어를 꼭 실행해주세요. 보통 `echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/YOUR_USERNAME/.zprofile` 와 같은 형태일 것입니다.
 2.  **Git 설치**:
     Homebrew가 설치되었다면, 이제 Git을 쉽게 설치할 수 있습니다.
     ```bash
@@ -338,6 +338,6 @@ Git은 3개의 가상 공간을 통해 파일의 상태를 관리합니다.
 
 ---
 
-[목차로 돌아가기](../README.md)
-[이전 강의로 이동](./03-HTTP.md)
-[다음 강의로 이동](./05-GitHub.md)
+- [목차로 돌아가기](../README.md)
+- [이전 강의로 이동](./03-HTTP.md)
+- [다음 강의로 이동](./05-GitHub.md)
