@@ -66,7 +66,75 @@ console.log(book2.title); // 출력: 'HTML/CSS 입문'
 
 ---
 
-## 3) 메서드(method)
+## 3) 클래스 속성 (Class Properties)
+
+ES6 이후에 도입된 **클래스 속성(Class Properties)** 문법을 사용하면 `constructor` 내부에서 `this`를 사용하여 속성을 정의하는 것 외에, 클래스 본문에서 직접 속성을 선언할 수 있습니다. 이는 코드를 더 간결하게 만들고, 특히 초기값이 고정된 속성을 정의할 때 유용합니다.
+
+클래스 속성은 두 가지 방식으로 선언할 수 있습니다:
+
+1.  **인스턴스 속성 (Instance Properties)**: `constructor`에서 `this.속성명 = 값`으로 정의하는 것과 동일하게, 클래스로부터 생성된 **각각의 객체(인스턴스)**가 자신만의 속성 값을 가지게 됩니다.
+2.  **정적 속성 (Static Properties)**: `static` 키워드를 사용하여 선언하며, 클래스 자체에 속하는 속성입니다. 객체를 생성하지 않고 **클래스 이름으로 직접 접근**할 수 있습니다.
+
+```javascript
+class Product {
+  // 1. 인스턴스 속성 (클래스 속성 문법 사용)
+  // 이 속성들은 Product 클래스로 만들어지는 모든 객체가 자신만의 값을 가집니다.
+  // constructor에서 this.name = name; this.price = price; 와 동일한 효과를 냅니다.
+  name = '기본 상품';
+  price = 0;
+  category = '기타';
+
+  constructor(name, price) {
+    // constructor가 있다면, 여기서 초기화된 값이 클래스 속성보다 우선합니다.
+    this.name = name;
+    this.price = price;
+    // category는 constructor에서 초기화하지 않았으므로, 위에서 선언된 '기타'가 기본값으로 사용됩니다.
+  }
+
+  // 2. 정적 속성 (static class property)
+  // 이 속성은 Product 클래스 자체에 속하며, 모든 Product 객체가 공유하는 값이 아닙니다.
+  // Product.MAX_PRICE 처럼 클래스 이름으로 직접 접근합니다.
+  static MAX_PRICE = 100000;
+  static DESCRIPTION = '모든 상품의 기본 설명입니다.';
+
+  displayInfo() {
+    console.log(`상품명: ${this.name}, 가격: ${this.price}원, 카테고리: ${this.category}`);
+  }
+
+  static getProductCount() {
+    // 정적 메서드 안에서는 정적 속성에 접근할 수 있습니다.
+    // 하지만 this.name과 같은 인스턴스 속성에는 직접 접근할 수 없습니다.
+    console.log(`최대 가격: ${Product.MAX_PRICE}원`);
+    return '상품 개수를 계산하는 로직 (예시)';
+  }
+}
+
+const item1 = new Product('노트북', 1200000);
+item1.displayInfo(); // 출력: 상품명: 노트북, 가격: 1200000원, 카테고리: 기타
+
+const item2 = new Product('키보드', 50000);
+item2.displayInfo(); // 출력: 상품명: 키보드, 가격: 50000원, 카테고리: 기타
+
+console.log(item1.name); // 출력: 노트북
+console.log(item2.name); // 출력: 키보드
+
+// 정적 속성 접근
+console.log(Product.MAX_PRICE);     // 출력: 100000
+console.log(Product.DESCRIPTION);   // 출력: 모든 상품의 기본 설명입니다.
+console.log(Product.getProductCount()); // 출력: 최대 가격: 100000원, 상품 개수를 계산하는 로직 (예시)
+
+// 인스턴스에서 정적 속성에 직접 접근할 수 없습니다.
+// console.log(item1.MAX_PRICE); // undefined
+```
+
+> [!NOTE]
+> 클래스 속성 문법은 `constructor`를 사용하지 않고도 인스턴스 속성을 선언할 수 있게 해주어 코드를 더 간결하게 만듭니다. 특히 초기값이 고정된 속성이나, `constructor`에서 복잡한 로직 없이 단순히 속성을 초기화할 때 유용합니다.
+>
+> 정적 속성은 클래스 자체에 속하는 데이터로, 모든 인스턴스가 공유하는 값이 아닙니다. 클래스 레벨의 상수나 유틸리티 정보 등을 저장할 때 사용됩니다.
+
+---
+
+## 4) 메서드(method)
 
 클래스 안에 정의된 함수를 '메서드'라고 부릅니다. 메서드는 해당 클래스로 만들어진 객체가 수행할 수 있는 '행동'을 정의합니다. 예를 들어, `Person` 클래스에 `sayHello`라는 메서드를 만들면, `Person` 객체는 `sayHello`라는 행동을 할 수 있게 됩니다.
 
@@ -150,7 +218,7 @@ cat1.speak();                  // 출력: '고양이가 소리를 냅니다.' (A
 
 ## 5) 정적 메서드(static)
 
-일반적인 메서드는 클래스로부터 객체(인스턴스)를 만들어야만 사용할 수 있습니다. 하지만 '정적 메서드(static method)'는 객체를 만들 필요 없이 **클래스 이름으로 바로 호출할 수 있는 메서드**입니다. 마치 학교의 교훈처럼, 특정 학생(객체)에게만 해당하는 것이 아니라 학교 전체(클래스)에 해당하는 행동이라고 생각할 수 있습니다.
+일반적인 메서드는 클래스로부터 객체(인스턴스)를 만들어야만 사용할 수 있습니다. 하지만 '정적 메서드(static method)'는 객체를 만들 필요 없이 **클래스 이름으로 바로 호출할 수 있는 메서드**입니다.
 
 정적 메서드는 주로 클래스에 관련된 유틸리티 함수나, 객체와 독립적으로 동작하는 기능을 정의할 때 사용됩니다.
 
@@ -186,7 +254,7 @@ console.log(MathUtil.getPi());        // 출력: 3.14159
 
 ## 6) 게터(getter)와 세터(setter)
 
-게터(getter)와 세터(setter)는 객체의 속성(property)에 접근하는 특별한 메서드입니다. 이들은 겉으로는 일반 속성처럼 보이지만, 실제로는 함수처럼 동작하여 속성 값을 읽거나 설정할 때 추가적인 로직을 수행할 수 있게 해줍니다. 마치 문을 열고 닫는 것처럼, 속성 값을 안전하게 관리하는 역할을 합니다.
+게터(getter)와 세터(setter)는 객체의 속성(property)에 접근하는 특별한 메서드입니다. 이들은 겉으로는 일반 속성처럼 보이지만, 실제로는 함수처럼 동작하여 속성 값을 읽거나 설정할 때 추가적인 로직을 수행할 수 있게 해줍니다.
 
 ### 게터 (Getter)
 
