@@ -17,7 +17,9 @@
 
 ## 2) 런타임 환경별 활용
 - [12. 브라우저 JavaScript](12-Browser-JavaScript.md)
-- [13. Node.js JavaScript](13-Node.js-JavaScript.md)
+- [13. DOM(문서 객체 모델) 기본 조작](13-Basic-DOM-Manipulation.md)
+- [14. 이벤트 처리 기초](14-Basic-Event-Handling.md)
+- [15. Node.js JavaScript](15-Node.js-JavaScript.md)
 
 ## 3) 실습
 - Lab1: ES6+ 문법 실습

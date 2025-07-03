@@ -1,4 +1,4 @@
-# 11. 브라우저 JavaScript
+# 12. 브라우저 JavaScript
 
 ## 1) 브라우저 환경이란?
 
@@ -12,104 +12,69 @@
 
 브라우저는 이 세 가지 언어를 모두 이해하고 실행하여, 정적인 문서였던 웹 페이지를 살아있는 애플리케이션처럼 만들어줍니다. JavaScript는 브라우저 안에서 웹 페이지의 HTML과 CSS를 조작하고, 사용자 이벤트를 처리하며, 서버와 통신하는 등 다양한 작업을 수행할 수 있습니다.
 
-## 2) DOM(Document Object Model)
+## 2) 사용자에게 메시지를 보여주고 입력받기
 
-**DOM(Document Object Model)**은 웹 페이지의 모든 내용을 컴퓨터가 이해하고 JavaScript로 조작할 수 있도록 '객체 형태로 만든 구조'입니다. 마치 웹 페이지를 구성하는 모든 요소(텍스트, 이미지, 버튼, 링크 등)들이 각각의 부품처럼 객체로 표현되고, 이 객체들이 나무(트리) 구조로 연결되어 있는 것과 같습니다.
+JavaScript는 웹 브라우저를 통해 사용자에게 간단한 메시지를 보여주거나, 사용자로부터 입력을 받을 수 있는 기능을 제공합니다. 이 기능들은 주로 웹 페이지에서 사용자에게 어떤 정보를 알리거나, 간단한 질문을 할 때 사용됩니다.
 
-JavaScript는 이 DOM을 통해 웹 페이지의 내용을 동적으로 변경할 수 있습니다. 예를 들어, 버튼을 클릭하면 텍스트를 바꾸거나, 새로운 이미지를 추가하거나, 스타일을 변경하는 등의 작업을 할 수 있습니다.
+### 2-1) `alert()`: 경고 메시지 보여주기
 
-### DOM 요소 선택하기
-
-DOM을 조작하려면 먼저 조작하고 싶은 웹 페이지의 요소를 선택해야 합니다. JavaScript는 다양한 방법으로 DOM 요소를 선택할 수 있는 기능을 제공합니다.
-
-*   **`document.getElementById('id')`**: HTML 요소의 `id` 속성을 사용하여 요소를 선택합니다. `id`는 웹 페이지에서 유일해야 합니다.
-*   **`document.querySelector('CSS 선택자')`**: CSS 선택자를 사용하여 요소를 선택합니다. 가장 먼저 일치하는 요소 하나를 반환합니다.
-*   **`document.querySelectorAll('CSS 선택자')`**: CSS 선택자와 일치하는 모든 요소를 배열과 비슷한 형태로 반환합니다.
-
-```html
-<!-- index.html 파일 -->
-<div id="message">안녕하세요!</div>
-<button class="my-button" id="btn">클릭</button>
-<p class="item">첫 번째 아이템</p>
-<p class="item">두 번째 아이템</p>
-
-<script>
-  // JavaScript에서 요소 선택
-  const messageDiv = document.getElementById('message'); // id가 message인 div 요소 선택
-  const clickButton = document.querySelector('#btn');    // id가 btn인 버튼 요소 선택
-  const firstItem = document.querySelector('.item');     // class가 item인 첫 번째 p 요소 선택
-  const allItems = document.querySelectorAll('.item');   // class가 item인 모든 p 요소 선택
-
-  console.log(messageDiv.textContent); // 출력: 안녕하세요!
-  console.log(firstItem.textContent);  // 출력: 첫 번째 아이템
-  console.log(allItems.length);      // 출력: 2
-
-  // 버튼을 클릭하면 메시지 바꾸기
-  clickButton.addEventListener('click', () => {
-    messageDiv.textContent = '버튼을 클릭했어요!'; // div의 텍스트 내용을 변경합니다.
-    messageDiv.style.color = 'blue';           // div의 글자 색상을 파란색으로 변경합니다.
-    firstItem.classList.add('highlight');      // 첫 번째 p 요소에 highlight 클래스를 추가합니다.
-  });
-</script>
-```
-
-> [!TIP]
-> `textContent`는 요소 안의 텍스트 내용을 가져오거나 설정할 때 사용하고, `innerHTML`은 요소 안의 HTML 내용을 가져오거나 설정할 때 사용합니다. `innerHTML`은 HTML 태그를 포함하여 내용을 변경할 수 있지만, 보안에 취약할 수 있으므로 주의해서 사용해야 합니다.
-
-## 3) 이벤트 다루기
-
-웹 페이지는 사용자의 행동에 반응하여 동적으로 변화합니다. 이때 사용자의 행동(클릭, 키보드 입력, 마우스 이동 등)이나 브라우저에서 발생하는 특정 상황을 '이벤트(Event)'라고 합니다. JavaScript는 이러한 이벤트를 감지하고, 이벤트가 발생했을 때 특정 코드를 실행하도록 할 수 있습니다.
-
-### 이벤트 리스너 등록하기
-
-이벤트를 감지하고 처리하려면 `addEventListener()` 메서드를 사용합니다. 이 메서드는 특정 HTML 요소에 '이벤트 리스너(Event Listener)'를 등록하여, 해당 이벤트가 발생했을 때 미리 정의된 함수(콜백 함수)를 실행하도록 합니다.
+`alert()` 함수는 사용자에게 경고나 알림 메시지를 보여주는 작은 팝업 창을 띄웁니다. 이 팝업 창에는 메시지와 함께 '확인' 버튼이 하나 있습니다. 사용자가 '확인' 버튼을 누르기 전까지는 웹 페이지의 다른 작업을 할 수 없습니다.
 
 ```javascript
-// HTML 요소 가져오기
-const myButton = document.querySelector('#myButton');
-const myInput = document.querySelector('#myInput');
-
-// 1. 클릭(click) 이벤트
-// 버튼을 클릭했을 때 메시지를 출력합니다.
-myButton.addEventListener('click', () => {
-  console.log('버튼이 클릭되었습니다!');
-  alert('버튼 클릭!');
-});
-
-// 2. 입력(input) 이벤트
-// 입력창에 글자를 입력할 때마다 콘솔에 현재 입력된 값을 출력합니다.
-myInput.addEventListener('input', event => {
-  console.log('사용자가 입력한 값:', event.target.value);
-});
-
-// 3. 마우스 오버(mouseover) / 마우스 아웃(mouseout) 이벤트
-// 특정 요소에 마우스를 올리거나 내릴 때 스타일을 변경합니다.
-const hoverDiv = document.querySelector('#hoverDiv');
-hoverDiv.addEventListener('mouseover', () => {
-  hoverDiv.style.backgroundColor = 'yellow';
-});
-hoverDiv.addEventListener('mouseout', () => {
-  hoverDiv.style.backgroundColor = 'lightgray';
-});
-```
-
-```html
-<!-- 위 JavaScript 코드와 함께 사용할 HTML 예시 -->
-<button id="myButton">클릭하세요</button>
-<input type="text" id="myInput" placeholder="여기에 입력하세요">
-<div id="hoverDiv" style="width: 100px; height: 50px; background-color: lightgray; margin-top: 10px;">마우스를 올려보세요</div>
+alert("안녕하세요! 웹 페이지에 오신 것을 환영합니다.");
+alert("이것은 중요한 알림입니다!");
 ```
 
 > [!NOTE]
-> `event` 객체는 이벤트에 대한 다양한 정보를 담고 있습니다. 예를 들어, `event.target`은 이벤트가 발생한 HTML 요소를 가리키고, `event.target.value`는 입력 요소의 현재 값을 가져올 때 사용됩니다. 이벤트는 웹 페이지를 동적이고 상호작용적으로 만드는 핵심 요소입니다.
+> `alert()`는 사용자에게 정보를 전달하는 가장 간단한 방법이지만, 사용자가 '확인'을 누르기 전까지는 페이지가 멈추기 때문에 너무 자주 사용하면 사용자 경험을 해칠 수 있습니다.
+
+### 2-2) `prompt()`: 사용자로부터 입력받기
+
+`prompt()` 함수는 사용자에게 질문을 하고, 사용자가 텍스트를 입력할 수 있는 작은 팝업 창을 띄웁니다. 이 팝업 창에는 질문 메시지, 텍스트 입력란, 그리고 '확인'과 '취소' 버튼이 있습니다. 사용자가 입력한 값은 JavaScript 코드에서 사용할 수 있습니다.
+
+```javascript
+const userName = prompt("이름이 무엇인가요?");
+if (userName) { // 사용자가 '확인'을 누르고 이름을 입력했을 경우
+  alert("환영합니다, " + userName + "님!");
+} else { // 사용자가 '취소'를 누르거나 아무것도 입력하지 않고 '확인'을 눌렀을 경우
+  alert("이름을 입력하지 않으셨군요.");
+}
+
+const userAge = prompt("나이를 입력해주세요.", "0"); // 두 번째 인자는 기본값입니다.
+if (userAge !== null && userAge !== "") { // 사용자가 '취소'를 누르지 않고 값을 입력했을 경우
+  alert("당신의 나이는 " + userAge + "세 입니다.");
+} else {
+  alert("나이를 입력하지 않으셨습니다.");
+}
+```
+
+> [!TIP]
+> `prompt()`의 두 번째 인자는 입력란에 미리 채워질 기본값을 설정할 수 있습니다. 사용자가 아무것도 입력하지 않고 '확인'을 누르면 이 기본값이 반환됩니다. 사용자가 '취소' 버튼을 누르면 `null`이 반환됩니다.
+
+### 2-3) `confirm()`: 사용자에게 확인/취소 질문하기
+
+`confirm()` 함수는 사용자에게 '예/아니오'와 같은 확인 또는 취소 질문을 하고, 그 결과를 `true`(확인) 또는 `false`(취소)로 반환하는 작은 팝업 창을 띄웁니다. 이 팝업 창에는 질문 메시지와 함께 '확인'과 '취소' 버튼이 있습니다.
+
+```javascript
+const isConfirmed = confirm("정말로 이 페이지를 떠나시겠습니까?");
+if (isConfirmed) {
+  alert("안녕히 가세요!");
+  // 여기에 페이지를 떠나는 등의 추가 동작을 넣을 수 있습니다.
+} else {
+  alert("계속 머물러 주셔서 감사합니다.");
+}
+```
+
+> [!CAUTION]
+> `confirm()`은 사용자의 중요한 결정을 확인받을 때 유용합니다. 예를 들어, 데이터를 삭제하기 전에 사용자에게 한 번 더 확인을 요청하는 경우에 사용할 수 있습니다.
 
 ---
 
-## 4) 브라우저 API
+## 3) 브라우저 API
 
 브라우저는 웹 페이지에서 다양한 기능을 수행할 수 있도록 여러 가지 내장된 API(Application Programming Interface)를 제공합니다. API는 프로그램들이 서로 통신하고 기능을 주고받을 수 있도록 정의된 규칙들의 집합입니다. 여기서는 웹 개발에서 자주 사용되는 몇 가지 브라우저 API를 소개합니다.
 
-### 4-1) `fetch()` API (네트워크 요청)
+### 3-1) `fetch()` API (네트워크 요청)
 
 `fetch()` API는 웹 페이지에서 서버로 네트워크 요청을 보내고, 서버로부터 데이터를 받아올 때 사용합니다. 웹 페이지에서 새로운 게시물을 불러오거나, 사용자 정보를 업데이트하는 등의 작업에 활용됩니다. `fetch()`는 Promise를 반환하므로 비동기적으로 동작합니다.
 
@@ -141,7 +106,7 @@ getPost();
 > [!NOTE]
 > `fetch()`는 웹 페이지와 서버 간의 통신을 담당하는 매우 중요한 API입니다. 이를 통해 웹 페이지는 동적으로 필요한 데이터를 가져와서 화면에 표시할 수 있습니다.
 
-### 4-2) `localStorage`와 `sessionStorage` (웹 스토리지)
+### 3-2) `localStorage`와 `sessionStorage` (웹 스토리지)
 
 `localStorage`와 `sessionStorage`는 웹 브라우저에 데이터를 저장할 수 있는 공간을 제공합니다. 이를 '웹 스토리지(Web Storage)'라고 부르며, 웹 페이지가 닫히거나 새로고침되어도 데이터를 유지할 수 있게 해줍니다.
 
@@ -173,7 +138,7 @@ console.log('마지막 방문 페이지:', lastPage); // 출력: 마지막 방�
 > [!TIP]
 > 웹 스토리지는 쿠키(Cookie)보다 더 많은 데이터를 저장할 수 있고, 서버로 전송되지 않아 보안상 이점이 있습니다. 하지만 민감한 정보(비밀번호 등)를 직접 저장하는 것은 피해야 합니다.
 
-### 4-3) Geolocation API (위치 정보)
+### 3-3) Geolocation API (위치 정보)
 
 Geolocation API는 사용자의 동의를 얻어 웹 페이지에서 사용자의 현재 위치 정보(위도, 경도)를 가져올 수 있게 해줍니다. 지도 서비스나 위치 기반 서비스에서 활용됩니다.
 
@@ -203,11 +168,11 @@ function getLocation() {
 > [!NOTE]
 > Geolocation API는 사용자의 개인 정보와 관련된 기능이므로, 브라우저는 반드시 사용자에게 위치 정보 접근 권한을 요청하고 동의를 받아야만 위치 정보를 가져올 수 있습니다.
 
-## 5) 보안 제약(CORS, Same-Origin Policy)
+## 4) 보안 제약(CORS, Same-Origin Policy)
 
 웹 브라우저는 사용자의 보안과 개인 정보 보호를 위해 여러 가지 보안 제약을 두고 있습니다. 이 중 가장 중요하고 자주 접하게 되는 것이 '동일 출처 정책(Same-Origin Policy)'과 'CORS(Cross-Origin Resource Sharing)'입니다.
 
-### 5-1) 동일 출처 정책 (Same-Origin Policy, SOP)
+### 4-1) 동일 출처 정책 (Same-Origin Policy, SOP)
 
 **동일 출처 정책(SOP)**은 웹 브라우저의 가장 기본적인 보안 정책입니다. 이 정책은 한 '출처(Origin)'에서 로드된 문서나 스크립트가 다른 '출처'의 리소스와 상호작용하는 것을 제한합니다. 여기서 '출처'는 프로토콜(http/https), 호스트(도메인 이름), 포트 번호의 세 가지 요소가 모두 같을 때 동일하다고 판단합니다.
 
@@ -221,7 +186,7 @@ function getLocation() {
 > [!NOTE]
 > SOP가 필요한 이유는 악의적인 웹사이트가 여러분의 브라우저를 통해 다른 웹사이트(예: 은행 사이트)에 로그인된 정보를 몰래 가져가는 것을 막기 위함입니다. 이는 사용자의 개인 정보와 보안을 지키는 데 매우 중요한 역할을 합니다.
 
-### 5-2) CORS (Cross-Origin Resource Sharing)
+### 4-2) CORS (Cross-Origin Resource Sharing)
 
 **CORS(Cross-Origin Resource Sharing)**는 동일 출처 정책 때문에 발생하는 제약을 완화하여, 다른 출처의 리소스에 안전하게 접근할 수 있도록 허용하는 메커니즘입니다. 즉, 서버가 '나는 이 출처에서 오는 요청을 허용할게'라고 명시적으로 허락해주는 방식입니다.
 
@@ -247,5 +212,5 @@ fetch('http://api.example.com/data') // 다른 출처의 서버에 요청
 ---
 
 - [목차로 돌아가기](../README.md)
-- [이전 강의로 이동](10-ES6-Advanced-Features.md)
-- [다음 강의로 이동](12-Node.js-JavaScript.md)
+- [이전 강의로 이동](11-ES6-Advanced-Features.md)
+- [다음 강의로 이동](13-Basic-DOM-Manipulation.md)
