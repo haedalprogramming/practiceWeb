@@ -368,4 +368,4 @@ node todo.js list
 
 - [목차로 돌아가기](../README.md)
 - [이전 강의로 이동](15-Basic-Debugging-with-Console.md)
-- [다음 강의로 이동](Lab2. 성적 처리 프로그램.md)
+- [다음 강의로 이동](Lab2-Grade-Processor.md)
