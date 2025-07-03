@@ -22,6 +22,7 @@
 - [15. Node.js JavaScript](15-Node.js-JavaScript.md)
 
 ## 3) 실습
-- [Lab1. CLI Todo List](Lab1-Todo-List.md)
-- [Lab2. 성적 처리 프로그램](Lab2-Grade-Processor.md)
-- [Lab3. 간단한 웹 서버 만들기](Lab3-Simple-Web-Server.md)
+- [Lab1. 간단한 계산기 만들기](Lab1-Simple-Calculator.md)
+- [Lab2. CLI Todo List](Lab2-Todo-List.md)
+- [Lab3. 성적 처리 프로그램](Lab3-Grade-Processor.md)
+- [Lab4. 간단한 웹 서버 만들기](Lab4-Simple-Web-Server.md)
