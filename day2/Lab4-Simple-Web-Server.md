@@ -282,5 +282,5 @@ node server.js
 ---
 
 - [목차로 돌아가기](../README.md)
-- [이전 강의로 이동](Lab2-Grade-Processor.md)
+- [이전 강의로 이동](Lab3-Grade-Processor.md)
 - [다음 강의로 이동](../../day3/README.md)

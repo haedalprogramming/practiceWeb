@@ -422,5 +422,5 @@ displayPassStudents();
 ---
 
 - [목차로 돌아가기](../README.md)
-- [이전 강의로 이동](Lab1-Todo-List.md)
-- [다음 강의로 이동](Lab3-Simple-Web-Server.md)
+- [이전 강의로 이동](Lab2-Todo-List.md)
+- [다음 강의로 이동](Lab4-Simple-Web-Server.md)

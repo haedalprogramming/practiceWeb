@@ -367,5 +367,5 @@ node todo.js list
 ---
 
 - [목차로 돌아가기](../README.md)
-- [이전 강의로 이동](15-Basic-Debugging-with-Console.md)
-- [다음 강의로 이동](Lab2-Grade-Processor.md)
+- [이전 강의로 이동](Lab1-Simple-Calculator.md)
+- [다음 강의로 이동](Lab3-Grade-Processor.md)
