@@ -163,91 +163,11 @@ for (const item of mySet) {
 > [!TIP]
 > Map과 Set은 특정 상황에서 배열이나 일반 객체보다 더 효율적이고 직관적인 코드를 작성할 수 있게 해줍니다. 예를 들어, 고유한 값 목록을 관리하거나, 키-값 쌍의 데이터를 유연하게 다룰 때 유용합니다.
 
-## 3) Optional Chaining(?.)과 Nullish Coalescing(??)
-
-JavaScript에서 객체나 변수에 값이 없을 때(null 또는 undefined) 발생하는 오류를 안전하게 처리하기 위해 ES2020에 도입된 유용한 문법입니다.
-
-### 3-1) Optional Chaining (`?.`)
-
-**Optional Chaining (`?.`)**은 객체의 속성에 접근할 때, 해당 속성이 `null` 또는 `undefined`인 경우 오류를 발생시키지 않고 `undefined`를 반환하도록 해줍니다. 마치 '만약 이 속성이 있다면 접근하고, 없다면 그냥 `undefined`라고 알려줘'라고 말하는 것과 같습니다.
-
-이전에는 객체의 속성에 접근하기 전에 해당 속성이 존재하는지 일일이 `if` 문으로 확인해야 했습니다. 하지만 `?.`를 사용하면 코드를 훨씬 간결하게 작성할 수 있습니다.
-
-```javascript
-const user = {
-  name: '김철수',
-  address: {
-    city: '서울',
-    zipCode: '12345'
-  },
-  contact: null // contact 속성이 null입니다.
-};
-
-console.log(user.name);             // 출력: 김철수
-console.log(user.address.city);     // 출력: 서울
-
-// Optional Chaining 사용 전: user.contact가 null이므로 오류 발생
-// console.log(user.contact.email); // TypeError: Cannot read properties of null (reading 'email')
-
-// Optional Chaining 사용 후: user.contact가 null이므로 오류 없이 undefined 반환
-console.log(user.contact?.email);   // 출력: undefined
-
-// user.profile이 없으므로 undefined 반환
-console.log(user.profile?.name);    // 출력: undefined
-
-// 배열에서도 사용 가능
-const arr = [1, 2];
-console.log(arr?.[0]); // 출력: 1
-console.log(arr?.[2]); // 출력: undefined
-
-// 함수 호출에서도 사용 가능
-const someFunc = undefined;
-// someFunc(); // TypeError: someFunc is not a function
-someFunc?.(); // 오류 없이 undefined 반환
-```
-
-> [!NOTE]
-> Optional Chaining은 특히 중첩된 객체 속성에 접근할 때 코드의 안정성을 높여줍니다. 데이터가 존재하지 않을 가능성이 있는 경우에 유용하게 사용됩니다.
-
-### 3-2) Nullish Coalescing (`??`)
-
-**Nullish Coalescing (`??`)** 연산자는 왼쪽 피연산자가 `null` 또는 `undefined`일 때만 오른쪽 피연산자의 값을 반환하고, 그렇지 않으면 왼쪽 피연산자의 값을 반환합니다. 이는 `||`(OR) 연산자와 비슷해 보이지만 중요한 차이가 있습니다.
-
-*   `||` (OR) 연산자: 왼쪽 피연산자가 `false`, `0`, `''`(빈 문자열), `null`, `undefined`일 때 오른쪽 값을 반환합니다. (falsy 값)
-*   `??` (Nullish Coalescing) 연산자: 왼쪽 피연산자가 오직 `null` 또는 `undefined`일 때만 오른쪽 값을 반환합니다.
-
-```javascript
-const userInput = null;
-const defaultName = '게스트';
-
-// || 연산자 사용 예시
-const nameWithOR = userInput || defaultName;
-console.log(nameWithOR); // 출력: 게스트 (userInput이 null이므로 defaultName 사용)
-
-const zeroValue = 0;
-const resultWithOR = zeroValue || '기본값';
-console.log(resultWithOR); // 출력: 기본값 (zeroValue가 0이므로 기본값 사용 - 의도치 않을 수 있음)
-
-// ?? 연산자 사용 예시
-const nameWithNullish = userInput ?? defaultName;
-console.log(nameWithNullish); // 출력: 게스트 (userInput이 null이므로 defaultName 사용)
-
-const resultWithNullish = zeroValue ?? '기본값';
-console.log(resultWithNullish); // 출력: 0 (zeroValue가 0이지만 null이나 undefined가 아니므로 0 사용 - 의도한 대로 동작)
-
-const emptyString = '';
-const textWithNullish = emptyString ?? '입력 없음';
-console.log(textWithNullish); // 출력: '' (emptyString이 null이나 undefined가 아니므로 빈 문자열 사용)
-```
-
-> [!TIP]
-> `??` 연산자는 `0`이나 `''`(빈 문자열)과 같은 유효한 값들을 기본값으로 대체하지 않고 그대로 사용하고 싶을 때 매우 유용합니다. 이는 사용자 입력이나 설정 값 등에서 `null` 또는 `undefined`와 `0`이나 `''`를 명확히 구분해야 할 때 특히 중요합니다.
-
-## 4) Proxy와 Reflect
+## 3) Proxy와 Reflect
 
 `Proxy`와 `Reflect`는 객체의 동작을 가로채거나 조작할 수 있는 강력한 도구입니다. 이들은 객체 지향 프로그래밍에서 '메타 프로그래밍'이라고 불리는 영역에 속하며, 객체의 기본 동작을 커스터마이징할 때 사용됩니다.
 
-### 4-1) Proxy (프록시)
+### 3-1) Proxy (프록시)
 
 **Proxy**는 특정 객체(`target`)의 작업을 가로채서(`trap`) 개발자가 정의한 방식으로 처리할 수 있게 해주는 객체입니다. 마치 어떤 요청이 실제 객체에 도달하기 전에 중간에서 가로채서 다른 작업을 수행하는 '대리인' 또는 '중개인'과 같습니다.
 
@@ -285,7 +205,7 @@ console.log(proxyPerson.age);  // 'age' 속성에 접근함 출력 후 16
 > [!NOTE]
 > Proxy는 객체의 속성 접근, 할당, 함수 호출 등 다양한 작업을 가로챌 수 있습니다. 이를 통해 유효성 검사, 로깅, 접근 제어, 데이터 바인딩 등 복잡한 기능을 구현할 수 있습니다.
 
-### 4-2) Reflect (리플렉트)
+### 3-2) Reflect (리플렉트)
 
 **Reflect**는 객체에 대한 기본적인 작업을 수행하는 내장 객체입니다. `Reflect`의 메서드들은 `Proxy` 핸들러에서 사용될 때 특히 유용합니다. `Reflect`는 객체에 대한 작업을 수행하는 표준화된 방법을 제공하며, 기존의 `Object` 메서드보다 더 예측 가능하고 안전하게 동작합니다.
 
@@ -315,5 +235,5 @@ console.log(myObject); // 출력: { b: 2, c: 3 }
 ---
 
 - [목차로 돌아가기](../README.md)
-- [이전 강의로 이동](09-ES6-Async-Patterns.md)
-- [다음 강의로 이동](11-Browser-JavaScript.md) 
+- [이전 강의로 이동](09-ES6-Modules.md)
+- [다음 강의로 이동](12-Browser-JavaScript.md) 

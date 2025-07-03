@@ -1,4 +1,4 @@
-# 04. 조건문과 반복문
+# 05. 조건문과 반복문
 
 ## 1) 조건문 (Conditional Statements)
 
@@ -182,5 +182,5 @@ for (let i = 1; i <= 5; i++) {
 ---
 
 - [목차로 돌아가기](../README.md)
-- [이전 강의로 이동](03-ES6-Variables-and-Scoping.md)
-- [다음 강의로 이동](05-ES6-Functions.md)
+- [이전 강의로 이동](04-ES6-Data-Types-and-Operators.md)
+- [다음 강의로 이동](06-ES6-Functions.md)

@@ -139,4 +139,4 @@ if (true) {
 
 - [목차로 돌아가기](../README.md)
 - [이전 강의로 이동](02-ES6-Basic.md)
-- [다음 강의로 이동](04-ES6-Conditional-Statements-and-Loops.md)
+- [다음 강의로 이동](04-ES6-Data-Types-and-Operators.md)
