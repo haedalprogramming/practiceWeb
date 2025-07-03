@@ -239,4 +239,4 @@ export default App;
 
 - [목차로 돌아가기](README.md)
 - [이전 강의로 이동](Lab4-Toggle-Component.md)
-- [다음 강의로 이동](../../day4/README.md)
+- [다음 강의로 이동](../day4/README.md)
