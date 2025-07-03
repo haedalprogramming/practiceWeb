@@ -2,9 +2,24 @@
 
 이 문서는 웹의 핵심 통신 규약인 HTTP에 대해 심도 있게 설명합니다. 클라이언트와 서버가 어떻게 메시지를 주고받는지, 그리고 웹 애플리케이션의 상태를 어떻게 관리하는지에 대한 기본 원리를 이해하는 것을 목표로 합니다.
 
+## 목차
+
+1. [HTTP란?](#1-http란)
+2. [HTTP 메시지 구조](#2-http-메시지-구조)
+   - [2-1) HTTP 요청 (Request)](#2-1-http-요청-request)
+   - [2-2) HTTP 응답 (Response)](#2-2-http-응답-response)
+3. [HTTP 요청 메서드](#3-http-요청-메서드)
+4. [HTTP 상태 코드](#4-http-상태-코드)
+5. [HTTPS: 보안이 강화된 HTTP](#5-https-보안이-강화된-http)
+6. [상태 관리: 쿠키와 세션](#6-상태-관리-쿠키와-세션)
+   - [6-1) 쿠키 (Cookie)](#6-1-쿠키-cookie)
+   - [6-2) 세션 (Session)](#6-2-세션-session)
+7. [HTTP 기반 인증 (Authentication)](#7-http-기반-인증-authentication)
+8. [최신 HTTP 동향](#8-최신-http-동향)
+
 ---
 
-## 1. HTTP란?
+## 1) HTTP란?
 
 HTTP(HyperText Transfer Protocol)는 웹에서 클라이언트(예: 웹 브라우저)와 서버 간에 데이터를 주고받기 위한 **통신 규칙(Protocol)**입니다. 웹의 기반이 되는 이 프로토콜은 HTML 문서, 이미지, 동영상 등 다양한 종류의 데이터를 전송하는 데 사용됩니다.
 
@@ -16,11 +31,11 @@ HTTP(HyperText Transfer Protocol)는 웹에서 클라이언트(예: 웹 브라�
 
 ---
 
-## 2. HTTP 메시지 구조
+## 2) HTTP 메시지 구조
 
 HTTP 통신은 **요청(Request)**과 **응답(Response)** 메시지를 통해 이루어집니다. 두 메시지는 비슷한 구조를 가집니다.
 
-### 2.1. HTTP 요청 (Request)
+### 2-1) HTTP 요청 (Request)
 
 클라이언트가 서버에 보내는 메시지입니다.
 
@@ -47,7 +62,7 @@ Authorization: Bearer abc123token
     -   `Authorization`: 인증 토큰
 -   **본문 (Body)**: 전송할 실제 데이터 (주로 `POST`, `PUT` 요청에 사용됨)
 
-### 2.2. HTTP 응답 (Response)
+### 2-2) HTTP 응답 (Response)
 
 서버가 클라이언트에 보내는 메시지입니다.
 
@@ -78,7 +93,7 @@ Set-Cookie: sessionId=xyz789; HttpOnly
 
 ---
 
-## 3. HTTP 요청 메서드
+## 3) HTTP 요청 메서드
 
 요청 메서드는 클라이언트가 서버에 **어떤 행동(Action)**을 원하는지 나타냅니다.
 
@@ -95,7 +110,7 @@ Set-Cookie: sessionId=xyz789; HttpOnly
 
 ---
 
-## 4. HTTP 상태 코드
+## 4) HTTP 상태 코드
 
 상태 코드는 서버가 클라이언트의 요청을 어떻게 처리했는지를 나타내는 **세 자리 숫자**입니다.
 
@@ -120,7 +135,7 @@ Set-Cookie: sessionId=xyz789; HttpOnly
 
 ---
 
-## 5. HTTPS: 보안이 강화된 HTTP
+## 5) HTTPS: 보안이 강화된 HTTP
 
 HTTPS(HTTP Secure)는 HTTP에 **SSL/TLS(Secure Sockets Layer/Transport Layer Security)** 프로토콜을 결합하여 데이터를 암호화하는 방식입니다.
 
@@ -134,11 +149,11 @@ HTTPS(HTTP Secure)는 HTTP에 **SSL/TLS(Secure Sockets Layer/Transport Layer Sec
 
 ---
 
-## 6. 상태 관리: 쿠키와 세션
+## 6) 상태 관리: 쿠키와 세션
 
 HTTP는 무상태(Stateless) 프로토콜이므로, 서버는 클라이언트의 이전 요청을 기억하지 못합니다. 하지만 로그인 상태 유지, 장바구니 기능 등을 구현하려면 사용자의 상태를 기억해야 합니다. 이를 위해 **쿠키(Cookie)**와 **세션(Session)**을 사용합니다.
 
-### 6.1. 쿠키 (Cookie)
+### 6-1) 쿠키 (Cookie)
 
 -   **정의**: 서버가 클라이언트(브라우저)에 저장하는 작은 데이터 조각.
 -   **동작 방식**:
@@ -146,7 +161,7 @@ HTTP는 무상태(Stateless) 프로토콜이므로, 서버는 클라이언트의
     2.  브라우저는 이 쿠키를 저장하고, 이후 동일한 서버에 요청을 보낼 때마다 요청 헤더에 `Cookie`를 담아 자동으로 전송합니다.
 -   **단점**: 클라이언트에 저장되므로 보안에 취약할 수 있으며, 저장 용량에 제한이 있습니다.
 
-### 6.2. 세션 (Session)
+### 6-2) 세션 (Session)
 
 -   **정의**: 사용자의 상태 정보를 서버 측에 저장하고 관리하는 방식.
 -   **동작 방식**:
@@ -160,7 +175,7 @@ HTTP는 무상태(Stateless) 프로토콜이므로, 서버는 클라이언트의
 
 ---
 
-## 7. HTTP 기반 인증 (Authentication)
+## 7) HTTP 기반 인증 (Authentication)
 
 웹 애플리케이션에서 사용자가 누구인지 확인하는 과정입니다.
 
@@ -169,7 +184,7 @@ HTTP는 무상태(Stateless) 프로토콜이므로, 서버는 클라이언트의
 
 ---
 
-## 8. 최신 HTTP 동향
+## 8) 최신 HTTP 동향
 
 -   **HTTP/1.1**: 현재 가장 널리 사용되는 버전으로, Keep-Alive, 파이프라이닝 등의 기능이 있습니다.
 -   **HTTP/2**: 여러 요청과 응답을 동시에 처리(Multiplexing)하고, 헤더를 압축하여 성능을 크게 향상시켰습니다.

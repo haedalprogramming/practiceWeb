@@ -1,4 +1,16 @@
-# 05. 함수
+# 06. 함수
+
+## 목차
+
+1. [함수](#1-함수)
+2. [매개변수(parameter)와 인자(argument)](#2-매개변수parameter와-인자argument)
+3. [ES6+ 화살표 함수(Arrow Function)](#3-es6-화살표-함수arrow-function)
+4. [기본 매개변수(Default Parameters)](#4-기본-매개변수default-parameters)
+5. [나머지 매개변수(Rest Parameters)](#5-나머지-매개변수rest-parameters)
+6. [콜백 함수(Callback Function)](#6-콜백-함수callback-function)
+7. [고차 함수(Higher-Order Function)](#7-고차-함수higher-order-function)
+
+---
 
 ## 1) 함수
 
@@ -306,5 +318,5 @@ console.log(triple(7));             // triple 함수를 호출하여 7에 3을 �
 ---
 
 - [목차로 돌아가기](../README.md)
-- [이전 강의로 이동](04-ES6-Conditional-Statements-and-Loops.md)
-- [다음 강의로 이동](06-ES6-Arrays-and-Objects.md)
+- [이전 강의로 이동](05-ES6-Conditional-Statements-and-Loops.md)
+- [다음 강의로 이동](07-ES6-Arrays-and-Objects.md)

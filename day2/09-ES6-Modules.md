@@ -1,4 +1,13 @@
-# 08. ES6+ 모듈
+# 09. ES6+ 모듈
+
+## 목차
+1. [모듈](#1-모듈)
+2. [기본 export와 import](#2-기본-export와-import)
+3. [default export](#3-default-export)
+4. [모듈의 특징](#4-모듈의-특징)
+5. [브라우저와 Node.js에서의 모듈](#5-브라우저와-nodejs에서의-모듈)
+   - [5-1) 브라우저 환경](#5-1-브라우저-환경)
+   - [5-2) Node.js 환경](#5-2-nodejs-환경)
 
 ## 1) 모듈
 
@@ -223,5 +232,5 @@ Node.js는 기본적으로 CommonJS 모듈 시스템(`require()`, `module.export
 ---
 
 - [목차로 돌아가기](../README.md)
-- [이전 강의로 이동](07-ES6-Classes.md)
-- [다음 강의로 이동](09-ES6-Async-Patterns.md)
+- [이전 강의로 이동](08-ES6-Classes.md)
+- [다음 강의로 이동](10-ES6-Async-Patterns.md)

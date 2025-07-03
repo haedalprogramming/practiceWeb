@@ -1,5 +1,21 @@
 # 12. 브라우저 JavaScript
 
+## 목차
+1. [브라우저 환경이란?](#1-브라우저-환경이란)
+2. [사용자에게 메시지를 보여주고 입력받기](#2-사용자에게-메시지를-보여주고-입력받기)
+   - [2-1) alert(): 경고 메시지 보여주기](#2-1-alert-경고-메시지-보여주기)
+   - [2-2) prompt(): 사용자로부터 입력받기](#2-2-prompt-사용자로부터-입력받기)
+   - [2-3) confirm(): 사용자에게 확인/취소 질문하기](#2-3-confirm-사용자에게-확인취소-질문하기)
+3. [브라우저 API](#3-브라우저-api)
+   - [3-1) fetch() API (네트워크 요청)](#3-1-fetch-api-네트워크-요청)
+   - [3-2) localStorage와 sessionStorage (웹 스토리지)](#3-2-localstorage와-sessionstorage-웹-스토리지)
+   - [3-3) Geolocation API (위치 정보)](#3-3-geolocation-api-위치-정보)
+4. [보안 제약(CORS, Same-Origin Policy)](#4-보안-제약cors-same-origin-policy)
+   - [4-1) 동일 출처 정책 (Same-Origin Policy, SOP)](#4-1-동일-출처-정책-same-origin-policy-sop)
+   - [4-2) CORS (Cross-Origin Resource Sharing)](#4-2-cors-cross-origin-resource-sharing)
+
+---
+
 ## 1) 브라우저 환경이란?
 
 우리가 인터넷에서 보는 모든 웹 페이지(사이트)는 **웹 브라우저**라는 특별한 프로그램 안에서 실행됩니다. 웹 브라우저(예: Chrome, Firefox, Safari, Edge)는 단순히 웹 페이지를 보여주는 것을 넘어, HTML, CSS, JavaScript 코드를 해석하고 실행하여 우리가 보고 상호작용할 수 있는 형태로 만들어주는 역할을 합니다.
