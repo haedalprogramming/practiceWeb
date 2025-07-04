@@ -8,6 +8,7 @@
    - [4-1) CommonJS (기본 모듈 시스템)](#4-1-commonjs-기본-모듈-시스템)
    - [4-2) ES Modules (최신 표준)](#4-2-es-modules-최신-표준)
 5. [npm 패키지 관리](#5-npm-패키지-관리)
+6. [환경 변수 (process.env)](#6-환경-변수-processenv)
 
 ---
 
@@ -116,6 +117,7 @@ server.listen(PORT, () => {
 
 // 이 코드를 app.js로 저장하고 터미널에서 node app.js를 실행한 후,
 // 웹 브라우저에서 http://localhost:3000 에 접속하면 '안녕하세요! Node.js 서버입니다.' 메시지를 볼 수 있습니다.
+```
 
 ## 4) 모듈 시스템 (CommonJS vs ES Modules)
 
@@ -210,7 +212,7 @@ console.log(subtract(10, 4)); // 출력: 6
 
 ## 5) npm 패키지 관리
 
-**npm(Node Package Manager)**은 Node.js 생태계에서 가장 크고 인기 있는 패키지 관리자입니다. npm은 전 세계 개발자들이 만든 수많은 오픈소스 라이브러리(패키지)들을 쉽게 설치하고 관리할 수 있도록 도와주는 도구입니다. 마치 스마트폰의 앱 스토어처럼, 필요한 기능을 가진 패키지를 검색하고 다운로드하여 여러분의 프로젝트에 추가할 수 있습니다.
+<strong>npm(Node Package Manager)</strong>은 Node.js 생태계에서 가장 크고 인기 있는 패키지 관리자입니다. npm은 전 세계 개발자들이 만든 수많은 오픈소스 라이브러리(패키지)들을 쉽게 설치하고 관리할 수 있도록 도와주는 도구입니다. 마치 스마트폰의 앱 스토어처럼, 필요한 기능을 가진 패키지를 검색하고 다운로드하여 여러분의 프로젝트에 추가할 수 있습니다.
 
 ### `package.json` 파일
 
@@ -227,21 +229,21 @@ npm init -y # -y 옵션은 모든 질문에 기본값으로 응답하여 빠르�
 *   **`npm install <package-name>`**: 특정 패키지를 프로젝트에 설치합니다. 설치된 패키지는 `node_modules` 폴더에 저장되고, `package.json` 파일의 `dependencies` 또는 `devDependencies`에 기록됩니다.
 
     ```bash
-npm install express # Express 웹 프레임워크 설치
-npm install lodash  # Lodash 유틸리티 라이브러리 설치
-```
+    npm install express # Express 웹 프레임워크 설치
+    npm install lodash  # Lodash 유틸리티 라이브러리 설치
+    ```
 
 *   **`npm install`**: `package.json` 파일에 기록된 모든 의존성 패키지들을 한 번에 설치합니다. 새로운 프로젝트를 시작하거나, 다른 사람이 만든 프로젝트를 내려받았을 때 이 명령어를 실행하여 필요한 모든 패키지를 설치합니다.
 
     ```bash
-npm install
-```
+    npm install
+    ```
 
 *   **`npm uninstall <package-name>`**: 설치된 패키지를 프로젝트에서 제거합니다. `node_modules` 폴더에서 해당 패키지를 삭제하고, `package.json`에서도 의존성 정보를 제거합니다.
 
     ```bash
-npm uninstall express
-```
+    npm uninstall express
+    ```
 
 *   **`npm run <script-name>`**: `package.json` 파일의 `scripts` 섹션에 정의된 명령어를 실행합니다. 개발 서버를 시작하거나, 테스트를 실행하거나, 코드를 빌드하는 등의 작업을 자동화할 때 사용됩니다.
 
@@ -259,18 +261,18 @@ npm uninstall express
     ```
 
     ```bash
-npm run start # node app.js 명령어를 실행합니다.
-npm run test  # mocha 명령어를 실행합니다.
-```
+    npm run start # node app.js 명령어를 실행합니다.
+    npm run test  # mocha 명령어를 실행합니다.
+    ```
 
-> [!TIP]
-> npm은 Node.js 개발의 핵심 도구입니다. npm을 통해 수많은 오픈소스 패키지를 활용하여 개발 시간을 단축하고, 더 강력한 애플리케이션을 만들 수 있습니다. `package.json` 파일과 `node_modules` 폴더는 Git과 같은 버전 관리 시스템에 포함시키지 않는 것이 일반적입니다. 대신 `package.json`만 공유하고, 다른 개발자가 `npm install`을 실행하여 필요한 패키지를 설치하도록 합니다.
+  > [!TIP]
+  > npm은 Node.js 개발의 핵심 도구입니다. npm을 통해 수많은 오픈소스 패키지를 활용하여 개발 시간을 단축하고, 더 강력한 애플리케이션을 만들 수 있습니다. `package.json` 파일과 `node_modules` 폴더는 Git과 같은 버전 관리 시스템에 포함시키지 않는 것이 일반적입니다. 대신 `package.json`만 공유하고, 다른 개발자가 `npm install`을 실행하여 필요한 패키지를 설치하도록 합니다.
 
 ---
 
 ## 6) 환경 변수 (process.env)
 
-**환경 변수(Environment Variables)**는 프로그램이 실행되는 환경에 따라 달라지는 값들을 저장하는 변수입니다. 예를 들어, 데이터베이스 접속 정보, API 키, 서버 포트 번호 등은 개발 환경과 실제 서비스 환경에서 다를 수 있습니다. 이러한 값들을 코드 안에 직접 작성(하드코딩)하는 대신 환경 변수로 관리하면, 코드 수정 없이 환경에 따라 다른 값을 사용할 수 있어 매우 유용합니다.
+<strong>환경 변수(Environment Variables)</strong>는 프로그램이 실행되는 환경에 따라 달라지는 값들을 저장하는 변수입니다. 예를 들어, 데이터베이스 접속 정보, API 키, 서버 포트 번호 등은 개발 환경과 실제 서비스 환경에서 다를 수 있습니다. 이러한 값들을 코드 안에 직접 작성(하드코딩)하는 대신 환경 변수로 관리하면, 코드 수정 없이 환경에 따라 다른 값을 사용할 수 있어 매우 유용합니다.
 
 Node.js에서는 `process.env` 객체를 통해 환경 변수에 접근할 수 있습니다. `process`는 현재 Node.js 프로세스에 대한 정보를 담고 있는 전역 객체이며, `env`는 환경 변수들을 속성으로 가지고 있는 객체입니다.
 
