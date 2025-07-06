@@ -24,6 +24,9 @@
     - Tailwind CSS
     - Styled-Components
 
+### 4) 실습
+- [Lab1. React로 자기소개 페이지 만들기](Lab1-Profile-Page-React.md)
+
 ---
 
 - [목차로 돌아가기](../README.md)
