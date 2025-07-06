@@ -7,7 +7,7 @@
 이 실습을 통해 여러분은 다음을 할 수 있게 됩니다:
 
 *   `true`/`false` 값을 가지는 불리언(Boolean) State를 관리합니다.
-*   State 값에 따라 다른 UI를 보여주는 **조건부 렌더링(Conditional Rendering)**을 구현합니다.
+*   State 값에 따라 다른 UI를 보여주는 <strong>조건부 렌더링(Conditional Rendering)</strong>을 구현합니다.
 *   이전 State 값을 바탕으로 새로운 State를 안전하게 업데이트하는 방법을 배웁니다.
 
 ---
