@@ -7,7 +7,7 @@
 **React Developer Tools**는 React 애플리케이션을 디버깅하고 검사하기 위해 Meta(페이스북)에서 공식적으로 제공하는 **브라우저 확장 프로그램**입니다.
 
 > [!NOTE]
-> **디버깅(Debugging)**이란?
+> <strong>디버깅(Debugging)</strong>이란?
 > 
 > 코드에 존재하는 오류(버그, Bug)를 찾고 수정하는 과정을 말합니다. React Developer Tools는 이 과정을 훨씬 쉽고 직관적으로 만들어 줍니다.
 

@@ -15,8 +15,10 @@
    - 2-2) [할당 연산자](#2-2-할당-연산자)
    - 2-3) [비교 연산자](#2-3-비교-연산자)
    - 2-4) [논리 연산자](#2-4-논리-연산자)
-   - 2-5) [증감 연산자](#2-5-증감-연산자)
-   - 2-6) [삼항 연산자](#2-6-삼항-연산자)
+   - 2-5) [삼항 연산자](#2-5-삼항-연산자-ternary-operator)
+   - 2-6) [JavaScript의 자동 타입 변환](#2-6-javascript의-자동-타입-변환)
+   - 2-7) [Optional Chaining과 Nullish Coalescing](#2-7-optional-chaining과-nullish-coalescing)
+   - 2-8) [비트 연산자](#2-8-비트-연산자-bitwise-operators)
 3. [연산자 우선순위](#3-연산자-우선순위)
 4. [타입 변환 (Type Conversion)](#4-타입-변환-type-conversion)
 
@@ -238,7 +240,9 @@ console.log(typeof null);      // "object"
 *   `-` (빼기)
 *   `*` (곱하기)
 *   `/` (나누기)
+*   `//` (몫)
 *   `%` (나머지)
+*   `**` (거듭제곱)
 
 ```javascript
 let x = 10;
@@ -274,6 +278,7 @@ console.log(lastName + firstName); // "홍길동"
 *   `=`: 오른쪽의 값을 왼쪽 변수에 할당합니다.
 *   `+=`: 왼쪽 변수의 값에 오른쪽 값을 더한 후, 결과를 다시 왼쪽 변수에 할당합니다. (`x += y`는 `x = x + y`와 같습니다.)
 *   `-=`: 왼쪽 변수의 값에서 오른쪽 값을 뺀 후, 결과를 다시 왼쪽 변수에 할당합니다.
+*   `*=`, `/=`, `//=`, `%=`, `**=`: 마찬가지로 각각 곱, 나누기, 몫, 나머지, 거듭제곱 연산 후 할당합니다.
 *   `++`: 변수의 값을 1 증가시킵니다.
 *   `--`: 변수의 값을 1 감소시킵니다.
 
@@ -345,7 +350,88 @@ console.log("할인 적용:", getsDiscount); // true
 console.log("입장 불가:", !canEnter); // false
 ```
 
-### 2-5) 주의: JavaScript의 자동 타입 변환 (Type Coercion)
+### 2-5) 삼항 연산자 (Ternary Operator)
+
+삼항 연산자는 조건문을 간단하게 표현할 수 있는 연산자입니다. `if-else` 문을 한 줄로 작성할 수 있어서 매우 유용합니다. **조건 ? 참일때값 : 거짓일때값** 의 형태로 사용합니다.
+
+```javascript
+// 기본 문법
+// 조건 ? 참일때_실행할_값 : 거짓일때_실행할_값
+
+let age = 17;
+let message = age >= 18 ? "성인입니다" : "미성년자입니다";
+console.log(message); // "미성년자입니다"
+
+// 위 코드는 아래 if-else 문과 같은 의미입니다
+let message2;
+if (age >= 18) {
+  message2 = "성인입니다";
+} else {
+  message2 = "미성년자입니다";
+}
+```
+
+#### 실용적인 활용 예시
+
+```javascript
+// 1. 변수 할당에서 사용
+let score = 85;
+let grade = score >= 90 ? "A" : score >= 80 ? "B" : score >= 70 ? "C" : "F";
+console.log(grade); // "B"
+
+// 2. 함수의 반환값에서 사용
+function getDiscount(isMember) {
+  return isMember ? 0.1 : 0; // 회원이면 10% 할인, 아니면 할인 없음
+}
+
+console.log(getDiscount(true));  // 0.1
+console.log(getDiscount(false)); // 0
+
+// 3. 배열이나 객체의 값 설정에서 사용
+let user = {
+  name: "김철수",
+  age: 16,
+  status: age >= 18 ? "adult" : "minor"
+};
+
+// 4. 함수 호출에서 사용
+let temperature = 25;
+let clothing = temperature > 20 ? "반팔" : "긴팔";
+console.log(`오늘은 ${clothing}을 입으세요.`); // "오늘은 반팔을 입으세요."
+
+// 5. 중첩된 삼항 연산자 (권장하지 않음 - 가독성이 떨어짐)
+let weather = "sunny";
+let activity = weather === "sunny" ? "산책" : 
+               weather === "rainy" ? "독서" : 
+               weather === "snowy" ? "스키" : "집에서 휴식";
+console.log(activity); // "산책"
+```
+
+#### 삼항 연산자 vs if-else 문
+
+```javascript
+let isLoggedIn = true;
+
+// 삼항 연산자 사용 (간결함)
+let welcomeMessage = isLoggedIn ? "환영합니다!" : "로그인해주세요.";
+
+// if-else 문 사용 (명확함)
+let welcomeMessage2;
+if (isLoggedIn) {
+  welcomeMessage2 = "환영합니다!";
+} else {
+  welcomeMessage2 = "로그인해주세요.";
+}
+
+// 둘 다 같은 결과
+console.log(welcomeMessage);  // "환영합니다!"
+console.log(welcomeMessage2); // "환영합니다!"
+```
+
+> [!WARNING]
+> 삼항 연산자를 너무 많이 중첩하면 코드를 읽기 어려워집니다. 3개 이상의 조건이 필요하다면 `if-else if-else` 문을 사용하는 것을 고려해보세요.
+
+### 2-6) JavaScript의 자동 타입 변환
 
 JavaScript는 다른 데이터 타입끼리 연산을 시도할 때, 에러를 발생시키는 대신 "도와주려는" 목적으로 자동으로 타입을 변환하는 특징이 있습니다. 이를 **타입 강제 변환(Type Coercion)** 이라고 부릅니다. 이 유연함은 때때로 개발자의 의도와 다른 결과를 낳아 찾기 어려운 버그의 원인이 되기도 합니다.
 
@@ -371,7 +457,7 @@ console.log(5 + [1, 2]); // "51,2" (배열이 문자열 "1,2"로 변환된 후 �
 >
 > 따라서 항상 `===`를 사용하여 엄격하게 타입을 비교하고, `typeof`를 통해 변수의 타입을 명확히 인지하며 코드를 작성하는 것이 중요합니다. 의도치 않은 타입 변환을 항상 경계하는 습관을 들이세요.
 
-### 2-6) Optional Chaining(?.)과 Nullish Coalescing(??)
+### 2-7) Optional Chaining과 Nullish Coalescing
 
 JavaScript에서 객체나 변수에 값이 없을 때(`null` 또는 `undefined`) 발생하는 오류를 안전하게 처리하기 위해 ES2020에 도입된 유용한 문법입니다.
 
@@ -451,7 +537,7 @@ console.log(textWithNullish); // 출력: '' (emptyString이 null이나 undefined
 > [!TIP]
 > `??` 연산자는 `0`이나 `''`(빈 문자열)과 같은 유효한 값들을 기본값으로 대체하지 않고 그대로 사용하고 싶을 때 매우 유용합니다. 이는 사용자 입력이나 설정 값 등에서 `null` 또는 `undefined`와 `0`이나 `''`를 명확히 구분해야 할 때 특히 중요합니다.
 
-### 2-7) 비트 연산자 (Bitwise Operators)
+### 2-8) 비트 연산자 (Bitwise Operators)
 
 비트 연산자는 컴퓨터가 데이터를 처리하는 가장 기본적인 단위인 **비트(bit)** 수준에서 연산을 수행합니다. 일반적으로는 자주 사용되지 않지만, 그래픽 처리나 데이터 압축, 암호화 등 저수준(low-level) 프로그래밍이나 특정 알고리즘에서는 매우 유용할 수 있습니다.
 
@@ -503,6 +589,203 @@ console.log(a >> 1); // 2
 > [!NOTE]
 > 비트 연산자는 고급 주제이며, 일반적인 웹 프론트엔드 개발에서는 자주 사용되는 편은 아닙니다. 지금 당장 모든 것을 완벽하게 이해할 필요는 없습니다. '숫자를 0과 1의 조합으로 바꿔서 계산하는 특별한 연산자도 있구나' 정도로만 알아두고 넘어가도 충분합니다.
 
+## 3) 연산자 우선순위
+
+수학에서와 같이 JavaScript에서도 연산자들에는 우선순위가 있습니다. 같은 식에서 여러 연산자가 사용될 때 어떤 연산이 먼저 수행되는지를 결정하는 규칙입니다.
+
+### 주요 연산자 우선순위 (높은 순서부터)
+
+1. **괄호 `( )`**: 가장 높은 우선순위를 가집니다.
+2. **단항 연산자**: `!`, `++`, `--`, `typeof`
+3. **산술 연산자**: 
+   - `*`, `/`, `%` (곱셈, 나눗셈, 나머지)
+   - `+`, `-` (덧셈, 뺄셈)
+4. **비교 연산자**: `<`, `>`, `<=`, `>=`, `===`, `!==`
+5. **논리 연산자**: 
+   - `&&` (AND)
+   - `||` (OR)
+6. **할당 연산자**: `=`, `+=`, `-=` 등
+
+```javascript
+// 연산자 우선순위 예시
+console.log(2 + 3 * 4); // 14 (3 * 4가 먼저 계산되어 12, 그 다음 2 + 12)
+console.log((2 + 3) * 4); // 20 (괄호 안의 2 + 3이 먼저 계산되어 5, 그 다음 5 * 4)
+
+console.log(10 > 5 && 3 < 7); // true (비교 연산이 먼저, 그 다음 논리 연산)
+console.log(false || true && false); // false (&&가 ||보다 우선순위가 높음)
+console.log((false || true) && false); // false (괄호로 순서 변경)
+
+// 복잡한 예시
+let x = 5;
+let result = x + 2 * 3 > 10 && x < 20;
+// 계산 순서: 2 * 3 = 6 → x + 6 = 11 → 11 > 10 = true → x < 20 = true → true && true = true
+console.log(result); // true
+```
+
+> [!TIP]
+> **연산자 우선순위**
+>
+> 연산자 우선순위를 모두 외울 필요는 없습니다. 헷갈릴 때는 언제든지 **괄호 `( )`**를 사용해서 계산 순서를 명확하게 만드는 것이 좋습니다. 괄호를 사용하면 코드를 읽는 다른 사람들도 의도를 쉽게 이해할 수 있습니다.
+
+## 4) 타입 변환 (Type Conversion)
+
+타입 변환은 하나의 데이터 타입을 다른 데이터 타입으로 바꾸는 것을 말합니다. JavaScript에서는 **자동 타입 변환(암시적 변환)**과 **명시적 타입 변환**이 있습니다.
+
+### 4-1) 자동 타입 변환 (암시적 변환)
+
+앞서 2-6)에서 살펴본 것처럼, JavaScript는 서로 다른 타입의 값들을 연산할 때 자동으로 타입을 변환합니다. 이는 편리할 수도 있지만 예상치 못한 결과를 낳을 수도 있습니다.
+
+```javascript
+// 문자열과 숫자의 자동 변환
+console.log("5" + 3);   // "53" (숫자 3이 문자열 "3"으로 변환)
+console.log("5" - 3);   // 2 (문자열 "5"가 숫자 5로 변환)
+console.log("5" * 3);   // 15 (문자열 "5"가 숫자 5로 변환)
+
+// 불리언과 숫자의 자동 변환
+console.log(true + 1);  // 2 (true가 숫자 1로 변환)
+console.log(false + 1); // 1 (false가 숫자 0으로 변환)
+```
+
+### 4-2) 명시적 타입 변환
+
+개발자가 의도적으로 타입을 변환하는 방법입니다. 이는 코드의 의도를 명확하게 하고 예상치 못한 버그를 방지하는 데 도움이 됩니다.
+
+#### 문자열로 변환
+
+*   **String() 함수**: 다른 타입의 값을 문자열로 변환합니다.
+*   **.toString() 메소드**: 숫자나 불리언 값을 문자열로 변환합니다.
+
+```javascript
+let num = 123;
+let bool = true;
+
+// String() 함수 사용
+console.log(String(num));   // "123"
+console.log(String(bool));  // "true"
+console.log(String(null));  // "null"
+console.log(String(undefined)); // "undefined"
+
+// .toString() 메소드 사용
+console.log(num.toString());  // "123"
+console.log(bool.toString()); // "true"
+
+// 주의: null과 undefined는 .toString() 메소드가 없습니다.
+// console.log(null.toString()); // 오류 발생!
+```
+
+#### 숫자로 변환
+
+*   **Number() 함수**: 다른 타입의 값을 숫자로 변환합니다.
+*   **parseInt() 함수**: 문자열을 정수로 변환합니다.
+*   **parseFloat() 함수**: 문자열을 소수점이 있는 숫자로 변환합니다.
+*   **단항 연산자 `+`**: 값 앞에 `+`를 붙여서 숫자로 변환합니다.
+
+```javascript
+let str1 = "123";
+let str2 = "123.45";
+let str3 = "123abc";
+let bool = true;
+
+// Number() 함수 사용
+console.log(Number(str1));   // 123
+console.log(Number(str2));   // 123.45
+console.log(Number(str3));   // NaN (숫자가 아닌 부분이 포함되어 있음)
+console.log(Number(bool));   // 1
+console.log(Number(""));     // 0 (빈 문자열은 0으로 변환)
+
+// parseInt() 함수 사용 (정수 부분만 추출)
+console.log(parseInt(str1));   // 123
+console.log(parseInt(str2));   // 123 (소수점 이하 버림)
+console.log(parseInt(str3));   // 123 (숫자가 아닌 부분은 무시)
+
+// parseFloat() 함수 사용 (소수점 포함)
+console.log(parseFloat(str2)); // 123.45
+console.log(parseFloat(str3)); // 123
+
+// 단항 연산자 + 사용
+console.log(+str1);  // 123
+console.log(+bool);  // 1
+```
+
+#### 불리언으로 변환
+
+*   **Boolean() 함수**: 다른 타입의 값을 불리언으로 변환합니다.
+*   **이중 부정 연산자 `!!`**: 값을 불리언으로 변환하는 간단한 방법입니다.
+
+```javascript
+// Boolean() 함수 사용
+console.log(Boolean(1));      // true
+console.log(Boolean(0));      // false
+console.log(Boolean("hello")); // true
+console.log(Boolean(""));     // false
+console.log(Boolean(null));   // false
+console.log(Boolean(undefined)); // false
+
+// 이중 부정 연산자 !! 사용
+console.log(!!"hello");  // true
+console.log(!!0);        // false
+console.log(!!"");       // false
+```
+
+### 4-3) Falsy와 Truthy 값
+
+JavaScript에서는 불리언 변환 시 특정 값들이 `false`로 취급되고, 나머지는 `true`로 취급됩니다.
+
+**Falsy 값들** (false로 변환되는 값들):
+*   `false`
+*   `0` (숫자 0)
+*   `""` 또는 `''` (빈 문자열)
+*   `null`
+*   `undefined`
+*   `NaN`
+
+**Truthy 값들** (true로 변환되는 값들):
+*   Falsy 값이 아닌 모든 값
+*   `"0"` (문자열 "0")
+*   `[]` (빈 배열)
+*   `{}` (빈 객체)
+
+```javascript
+// Falsy 값들
+if (0) {
+  console.log("실행되지 않음");
+}
+
+if ("") {
+  console.log("실행되지 않음");
+}
+
+// Truthy 값들
+if ("0") {
+  console.log("실행됨"); // "0"은 문자열이므로 truthy
+}
+
+if ([]) {
+  console.log("실행됨"); // 빈 배열도 truthy
+}
+
+// 실제 활용 예시
+function greetUser(name) {
+  if (name) {
+    console.log(`안녕하세요, ${name}님!`);
+  } else {
+    console.log("안녕하세요, 손님!");
+  }
+}
+
+greetUser("김철수");  // "안녕하세요, 김철수님!"
+greetUser("");       // "안녕하세요, 손님!"
+greetUser(null);     // "안녕하세요, 손님!"
+```
+
+> [!IMPORTANT]
+> **타입 변환 사용 시 주의사항**
+>
+> 1. **명시적 변환을 우선하세요**: 자동 타입 변환에 의존하기보다는 `Number()`, `String()`, `Boolean()` 등을 사용해서 의도를 명확하게 표현하는 것이 좋습니다.
+>
+> 2. **입력값 검증**: 사용자로부터 받은 입력값은 항상 예상한 타입인지 확인하고 적절히 변환해야 합니다.
+>
+> 3. **NaN 주의**: `Number()` 변환 시 잘못된 값이 들어오면 `NaN`이 될 수 있으니, `isNaN()` 함수로 확인하는 습관을 들이세요.
 
 ---
 
