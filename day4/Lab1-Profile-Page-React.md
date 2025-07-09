@@ -136,6 +136,301 @@ npm run dev
 4.  **다른 스타일링 기법 적용**: CSS Modules 대신 Styled-Components나 Tailwind CSS를 프로젝트에 설치하고, 일부 컴포넌트의 스타일을 새로운 방식으로 변경해보는 것은 어떨까요?
 
 ---
+
+## ✅ 최종 결과물 예시
+
+간단한 예제 코드입니다.
+
+<details>
+<summary><strong>최종 폴더 구조</strong></summary>
+
+```
+src/
+├── components/
+│   ├── Footer.jsx
+│   ├── Footer.module.css
+│   ├── Header.jsx
+│   └── Header.module.css
+├── pages/
+│   ├── About.jsx
+│   ├── About.module.css
+│   ├── Home.jsx
+│   └── Home.module.css
+├── App.css
+├── App.jsx
+├── index.css
+└── main.jsx
+```
+
+</details>
+
+<details>
+<summary><strong>각 파일 별 예시 코드</strong></summary>
+
+#### `main.jsx`
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App.jsx'
+import './index.css'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>,
+)
+```
+
+#### `App.jsx`
+```jsx
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import About from './pages/About';
+import './App.css';
+
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
+```
+
+#### `components/Header.jsx`
+```jsx
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from './Header.module.css';
+
+function Header() {
+  return (
+    <header className={styles.header}>
+      <h1>나의 자기소개</h1>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">홈</Link>
+          </li>
+          <li>
+            <Link to="/about">소개</Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
+}
+
+export default Header;
+```
+
+#### `components/Header.module.css`
+```css
+.header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.header nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.header nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header nav a:hover {
+  text-decoration: underline;
+}
+```
+
+#### `components/Footer.jsx`
+```jsx
+import React from 'react';
+import styles from './Footer.module.css';
+
+function Footer() {
+  return (
+    <footer className={styles.footer}>
+      <p>&copy; 2025 OOO. 모든 권리 보유.</p>
+    </footer>
+  );
+}
+
+export default Footer;
+```
+
+#### `components/Footer.module.css`
+```css
+.footer {
+  background-color: #34495e;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+```
+
+#### `pages/Home.jsx`
+```jsx
+import React from 'react';
+import styles from './Home.module.css';
+
+function Home() {
+  return (
+    <div className={styles.home}>
+      <h2>웹사이트에 오신 것을 환영합니다!</h2>
+      <p>이곳은 Vite와 React로 만든 저의 자기소개 웹사이트입니다.</p>
+      <p>상단의 '소개' 메뉴를 클릭하여 더 많은 정보를 확인하세요.</p>
+    </div>
+  );
+}
+
+export default Home;
+```
+
+#### `pages/Home.module.css`
+```css
+.home {
+  padding: 40px;
+  text-align: center;
+  background-color: #ecf0f1;
+  border-radius: 8px;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+```
+
+#### `pages/About.jsx`
+```jsx
+import React from 'react';
+import styles from './About.module.css';
+
+function About() {
+  return (
+    <div className={styles.about}>
+      <section>
+        <h2>나의 관심사</h2>
+        <ul>
+          <li>Vite와 React 프론트엔드 개발</li>
+          <li>JavaScript와 TypeScript</li>
+          <li>깨끗한 코드 작성하기</li>
+        </ul>
+      </section>
+      <section>
+        <h2>나의 프로필 사진</h2>
+        <img src="https://via.placeholder.com/150" alt="프로필" />
+        <p>Vite와 함께하는 즐거운 코딩 라이프!</p>
+      </section>
+      <section>
+        <h2>연락처</h2>
+        <p>
+          더 많은 정보를 원하시면{' '}
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+            나의 GitHub
+          </a>
+          를 방문해주세요.
+        </p>
+      </section>
+    </div>
+  );
+}
+
+export default About;
+```
+
+#### `pages/About.module.css`
+```css
+.about section {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.about h2 {
+  color: #2980b9;
+  margin-bottom: 15px;
+}
+
+.about img {
+  max-width: 150px;
+  border-radius: 50%;
+  display: block;
+  margin: 15px auto;
+}
+
+.about a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.about a:hover {
+  text-decoration: underline;
+}
+```
+
+#### `index.css`
+```css
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+main {
+  padding: 20px;
+  /* Footer 높이만큼 아래쪽 여백을 주어 내용이 가려지지 않게 함 */
+  padding-bottom: 80px; 
+}
+```
+
+</details>
+
+---
 - [목차로 돌아가기](README.md)
 - [이전 강의로 이동](04-React-Styling.md)
 - [다음 강의로 이동](../README.md)
