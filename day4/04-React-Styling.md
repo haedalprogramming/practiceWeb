@@ -84,8 +84,9 @@ export default MyComponent;
 > [!NOTE]
 > `flex`, `justify-center`, `items-center`, `h-screen`, `bg-gray-100` 등은 모두 Tailwind CSS에서 제공하는 유틸리티 클래스입니다.
 
-> [!CAUTION]
-> HTML에 많은 클래스들이 나열되어 코드가 길어지고 가독성이 떨어질 수 있다는 단점이 있습니다.
+> [!TIP]
+> Tailwind CSS는 매우 강력하고 인기 있는 도구입니다. Day 6의 '심화 주제'에서 설치부터 실제 프로젝트에 적용하는 방법까지 더 자세히 다룰 예정입니다.
+
 
 ### 3-1-3) Styled-Components
 
