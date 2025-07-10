@@ -1,4 +1,4 @@
-# 2) useEffect Hook 심화
+# 02. useEffect Hook 심화
 
 `useEffect`는 React 컴포넌트를 외부 시스템과 동기화하기 위해 사용하는 Hook입니다. 여기서 '외부 시스템'이란 API 서버, 브라우저의 `document`나 `window` 객체, `setInterval` 같은 타이머, 혹은 외부 라이브러리 등을 의미합니다.
 

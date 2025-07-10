@@ -1,4 +1,4 @@
-# 7) API 모킹 (Mock Service Worker)
+# 07. API 모킹 (Mock Service Worker)
 
 실제 서비스 개발에서는 언제나 백엔드 서버가 완벽히 준비된 상태에서 프론트엔드를 개발할 수 있는 것은 아닙니다. 이런 상황에서 <strong>API 모킹(Mock API)</strong>은 큰 도움이 됩니다. 이번 강의에서는 대표적인 모킹 도구인 <strong>Mock Service Worker(MSW)</strong>를 사용하여 가짜 API를 만드는 방법을 배웁니다. 실제 백엔드 API를 준비해서 테스트하는 데에는 적지 않은 시간과 노력이 소모되므로, 프론트엔드에서의 백엔드 연동에 집중하기 위해 모킹을 사용하도록 합시다.
 

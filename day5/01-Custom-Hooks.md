@@ -1,4 +1,4 @@
-# 1) 커스텀 Hook (Custom Hooks)
+# 01. 커스텀 Hook (Custom Hooks)
 
 이전 강의에서 우리는 `useState`, `useEffect`와 같은 React Hook들을 사용해 컴포넌트의 상태를 관리하고, 부수 효과(Side Effect)를 처리하는 방법을 배웠습니다.
 

@@ -1,4 +1,4 @@
-# 1) TanStack Query (React Query) 소개
+# 1. TanStack Query (React Query) 소개
 
 Day 5에서 우리는 `fetch` API와 `useEffect` Hook을 사용하여 서버로부터 데이터를 가져오는 방법을 배웠습니다. 이 방법은 간단한 데이터를 한두 번 가져올 때는 유용하지만, 실제 애플리케이션에서는 다음과 같은 여러 가지 복잡한 상황들을 마주하게 됩니다.
 

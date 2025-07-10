@@ -1,4 +1,4 @@
-# 9) Jest와 React Testing Library 소개
+# 9. Jest와 React Testing Library 소개
 
 우리가 만든 React 애플리케이션이 복잡해질수록, 새로운 기능을 추가하거나 기존 코드를 수정할 때 예상치 못한 오류가 발생할 위험이 커집니다. 버튼 하나를 고쳤더니 전혀 다른 기능이 먹통이 되는 경험을 하고 싶지는 않겠죠?
 
