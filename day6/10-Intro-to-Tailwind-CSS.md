@@ -1,4 +1,4 @@
-# 10) Tailwind CSS 소개
+# 10. Tailwind CSS 소개
 
 ## 1) CSS 프레임워크란?
 

@@ -1,4 +1,4 @@
-# 6) REST API란?
+# 06. REST API란?
 
 웹 애플리케이션에서 가장 많이 사용되는 API 형식은 <strong>REST(Representational State Transfer)</strong>입니다. 이번 강의에서는 REST의 개념부터 REST API 설계‧사용 방법까지 알아봅니다.
 

@@ -1,4 +1,4 @@
-# 11) React Hook Form을 이용한 고급 폼 관리
+# 11. React Hook Form을 이용한 고급 폼 관리
 
 ## 1) React에서 폼(Form)이란?
 
